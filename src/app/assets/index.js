@@ -1,3 +1,3 @@
-//import computer from './computer.svg'
+import libraryLanding from './library-landing.svg'
 
-export { }
+export { libraryLanding }
