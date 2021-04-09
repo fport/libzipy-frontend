@@ -1,8 +1,21 @@
+/*import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux' */
 import { Flex, Spacer, Box, Avatar, Text } from "@chakra-ui/react";
 import { CopyIcon } from '@chakra-ui/icons'
 
 
 const DasboardSidePanel = () => {
+    /*const [panel, setPanel] = useState('/borrow-book')
+
+    const dispatch = useDispatch()
+    const appleOnTree = useSelector((state) => state.projects.appleOnTree)
+
+    const changePanel = () => {
+        dispatch({ type: 'DROP_APPLE', payload: panel })
+    }
+    */
+  
+
     return (
         <>
             <Flex

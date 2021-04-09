@@ -15,6 +15,11 @@ const Router = () => {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard/category" component={Dashboard} />
+          <Route path="/dashboard/library" component={Dashboard} />
+          <Route path="/dashboard/books" component={Dashboard} />
+          <Route path="/dashboard/member" component={Dashboard} />
+          <Route path="/dashboard/author" component={Dashboard} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Routers>
