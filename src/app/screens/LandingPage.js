@@ -1,5 +1,6 @@
 import Hero from "../components/sections/Hero";
 import LandingLayout from "../components/layouts/LandingLayout";
+import {libraryLanding} from "../assets"
 
 export default function LandingPage() {
   return (
@@ -7,7 +8,7 @@ export default function LandingPage() {
       <Hero
         title="Build this rad landing page from scratch"
         subtitle="This is the subheader section where you describe the basic benefits of your product"
-        image={"https://source.unsplash.com/collection/sfL_QOnmy00/800x600"}
+        image={libraryLanding}
         ctaText="Create your account now"
         ctaLink="/signup"
       />
