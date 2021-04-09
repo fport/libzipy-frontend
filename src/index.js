@@ -5,8 +5,6 @@ import Router from './app/Router'
 import customTheme from "./app/utils/theme";
 
 
-
-
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={customTheme}>
