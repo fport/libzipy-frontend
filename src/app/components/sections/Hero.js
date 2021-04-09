@@ -8,7 +8,6 @@ import {
   Image,
   Heading,
   Stack,
-  Text
 } from "@chakra-ui/react";
 
 export default function Hero({
