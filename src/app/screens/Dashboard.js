@@ -1,4 +1,3 @@
-import Hero from "../components/sections/Hero";
 import DashboardLayout from "../components/layouts/DashboardLayout";
 
 export default function Dashboard() {
