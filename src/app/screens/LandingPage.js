@@ -6,10 +6,10 @@ export default function LandingPage() {
   return (
     <LandingLayout>
       <Hero
-        title="Build this rad landing page from scratch"
-        subtitle="This is the subheader section where you describe the basic benefits of your product"
+        title="Online Libzipy Kütüphanesi"
+        subtitle="Size pdfler üzerinden online bir kütüphane fırsatı sunuyor"
         image={libraryLanding}
-        ctaText="Create your account now"
+        ctaText="Hemen hesap oluştur"
         ctaLink="/signup"
       />
     </LandingLayout>
