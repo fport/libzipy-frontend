@@ -1,5 +1,5 @@
 import { Flex, Spacer, Box, Avatar, Text } from "@chakra-ui/react";
-import { CopyIcon,IoLibraryOutline } from '@chakra-ui/icons'
+import { CopyIcon } from '@chakra-ui/icons'
 
 
 const DasboardSidePanel = () => {
@@ -30,7 +30,7 @@ const DasboardSidePanel = () => {
                     </Box>
                     <Text fontSize="sm" color="gray.500" mb="1" mt="10" >🧵 Hayatımızı güzelleştiren</Text>
                     <Box mt="3" color="white" align="space-around">
-                        <IoLibraryOutline mr="1"/>
+                        <CopyIcon mr="1"/>
                         <a href="http://localhost:3000/dashboard/books">Kitaplar</a>
                     </Box>
                     <Text fontSize="sm" color="gray.500" mb="1" mt="10"  >💁  Bişi bişi </Text>
