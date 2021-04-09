@@ -1,4 +1,4 @@
-import { Flex, Box, Spacer } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const DasboardSidePanel = () => {
     return (
