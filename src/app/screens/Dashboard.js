@@ -5,8 +5,8 @@ import { Author, Books, Category, Library, Member } from './index'
 
 const Dashboard = () => {
   const url = useLocation()
-  const tab = url.pathname.split('/')[2]
-  const activeTabs = tab.charAt(0).toUpperCase() + tab.slice(1)
+  const tab = url.pathname.split('/')[2] ? url.pathname.split('/')[2] : null
+  const activeTabs = tab ? tab.charAt(0).toUpperCase() + tab.slice(1) : null
 
   return (
     <div style={{ display: 'flex' }}>
