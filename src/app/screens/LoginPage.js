@@ -1,46 +1,34 @@
-import { useState } from 'react'
 import './LoginScreen.css'
+import { libraryLogin } from '../assets'
+import { Form, Button } from 'react-bootstrap'
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   return (
     <>
-      <div className="login-screen">
-        <form className="login-screen__form">
-          <h3 className="login-screen__title">Login</h3>
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              className="input-box"
-              type="email"
-              required
-              id="email"
-              placeholder="Email address"
-              onChange={(e) => setEmail(e.target.value)}
-              value={email}
-              tabIndex={1}
-            />
+      <div className="l-container">
+        <div className="l-left">
+          <img className="l-img" src={libraryLogin} alt="library login" />
+        </div>
+        <div className="l-right">
+          <div className="l-right-container">
+            <Form>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>E-Posta</Form.Label>
+                <Form.Control className="bg-form" type="email" placeholder="E-Postanı gir." />
+                <Form.Text className="text-muted">
+                  E-postanızı asla başkalarıyla paylaşmayacağız.
+                </Form.Text>
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Şifre</Form.Label>
+                <Form.Control className="bg-form" type="password" placeholder="Şifreni gir." />
+              </Form.Group>
+              <Button className="bt-color" type="submit">
+                Giriş<i class="fas fa-angle-double-right"></i>
+              </Button>
+            </Form>
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password: </label>
-            <input
-              className="input-box"
-              type="password"
-              required
-              id="password"
-              autoComplete="true"
-              placeholder="Enter password"
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              tabIndex={2}
-            />
-          </div>
-          <button type="submit" className="btn but">
-            Login
-          </button>
-        </form>
+        </div>
       </div>
     </>
   )

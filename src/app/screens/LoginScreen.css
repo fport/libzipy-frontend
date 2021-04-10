@@ -1,44 +1,43 @@
-.login-screen {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .login-screen__form {
-    width: 380px;
-    padding: 1.5rem;
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-    background: #1B1C1D;
-  }
-  
-  .login-screen__title {
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #1FB79B;
-  }
-  
-  
-  .login-screen__subtext {
-    font-size: 0.7rem;
-    display: block;
-    margin: 0.5rem 0;
-  }
-  
-  .form-group {
-    color: #1FB79B;
-  }
-  
-  input.input-box, textarea { background: #242425; color: rgba(31, 183, 155,50%); }
-  
-  input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #242526 inset;
-    -webkit-text-fill-color: rgba(31,183,155,50%);
-  }
-  
-  .but {
-      background: #101111 !important;
-      color: #1FB79B !important;
-  }
-  
+.l-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  margin:0;
+  padding:0;
+  background: #FFAFBD;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.l-left {
+  display: flex;
+  width: 50%;
+  height: 100%;
+}
+.l-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
+
+.l-img > img {
+  width: 100%;
+  height: 100%;
+}
+.l-right-container {
+  display: flex;
+}
+.bg-form {
+  background-color: #fae0f5;
+}
+.bt-color {
+  background-color: #D894E3;
+}
+.bt-color:hover {
+  background-color: #D894E3;
+}
