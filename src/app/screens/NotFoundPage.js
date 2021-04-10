@@ -1,6 +1,4 @@
 const LandingPage = () => {
-    return (
-        <div>not found page</div>
-    )
+  return <div>not found page</div>
 }
 export default LandingPage

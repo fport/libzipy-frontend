@@ -1,5 +1,16 @@
-import React from "react";
-import { Drawer, DrawerOverlay, DrawerContent,useDisclosure,DrawerBody,Input,DrawerHeader,DrawerFooter,DrawerCloseButton, Button } from "@chakra-ui/react";
+import React from 'react'
+import {
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  useDisclosure,
+  DrawerBody,
+  Input,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerCloseButton,
+  Button
+} from '@chakra-ui/react'
 
 function DrawerPanel() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -10,12 +21,7 @@ function DrawerPanel() {
       <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
         Open
       </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-        finalFocusRef={btnRef}
-      >
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />

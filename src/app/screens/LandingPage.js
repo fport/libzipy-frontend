@@ -1,6 +1,6 @@
-import Hero from "../components/sections/Hero";
-import LandingLayout from "../components/layouts/LandingLayout";
-import {libraryLanding} from "../assets"
+import Hero from '../components/Landing/Hero'
+import LandingLayout from '../components/Landing/LandingLayout'
+import { libraryLanding } from '../assets'
 
 export default function LandingPage() {
   return (
@@ -13,5 +13,5 @@ export default function LandingPage() {
         ctaLink="/signup"
       />
     </LandingLayout>
-  );
+  )
 }
