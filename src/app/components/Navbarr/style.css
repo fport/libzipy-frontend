@@ -12,8 +12,9 @@
 }
 
 .logout {
-    background-color: #69c284 !important;
+    background-color: #40BFBC !important;
     padding:0.5rem; 
+    border-radius: 1rem;
 }
 
 .logo {
