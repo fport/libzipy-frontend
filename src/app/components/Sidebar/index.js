@@ -13,33 +13,39 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="nav-item">
-        <Link to="/dashboard/about">
+        <Link to="/dashboard/category">
           <i className="fas fa-object-ungroup kolor"></i>
           <span className="links">Kategoriler</span>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/dashboard/about">
+        <Link to="/dashboard/library">
           <i className="fas fa-atlas kolor"></i>
           <span className="links">Kütüphaneler</span>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/dashboard/about">
+        <Link to="/dashboard/books">
           <i className="fas fa-book kolor"></i>
           <span className="links">Kitaplar</span>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/dashboard/about">
+        <Link to="/dashboard/member">
           <i className="fas fa-walking kolor"></i>
           <span className="links">Üyeler</span>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/dashboard/about">
+        <Link to="/dashboard/author">
           <i className="fas fa-feather kolor"></i>
           <span className="links">Yazarlar</span>
+        </Link>
+      </div>
+      <div className="nav-item">
+        <Link to="/release">
+          <i className="fas fa-bacon kolor"></i>
+          <span className="links">Geliştirmeler & Yol Haritası</span>
         </Link>
       </div>
       <div className="nav-item">

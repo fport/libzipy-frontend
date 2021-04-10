@@ -1,7 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Routers, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
-import { LandingPage, LoginPage, RegisterPage, Dashboard, NotFoundPage } from './screens'
+import {
+  LandingPage,
+  LoginPage,
+  RegisterPage,
+  Dashboard,
+  NotFoundPage,
+  ReleaseNotes
+} from './screens'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 
@@ -15,11 +22,7 @@ const Router = () => {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/dashboard/category" component={Dashboard} />
-          <Route path="/dashboard/library" component={Dashboard} />
-          <Route path="/dashboard/books" component={Dashboard} />
-          <Route path="/dashboard/member" component={Dashboard} />
-          <Route path="/dashboard/author" component={Dashboard} />
+          <Route path="/release" component={ReleaseNotes} />
           <Route path="*" component={NotFoundPage} />
         </Switch>
       </Routers>

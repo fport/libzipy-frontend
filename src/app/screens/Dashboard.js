@@ -1,48 +1,44 @@
 import Sidebar from '../components/Sidebar'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
+import { Author, Books, Category, Library, Member } from './index'
 
 const Dashboard = () => {
+  const url = useLocation()
+  const tab = url.pathname.split('/')[2]
+  const activeTabs = tab.charAt(0).toUpperCase() + tab.slice(1)
+
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
       <div style={{ marginLeft: '300px', padding: '1rem' }}>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
+          <Breadcrumb.Item active>{activeTabs}</Breadcrumb.Item>
+        </Breadcrumb>
         <Switch>
-          <Route path="/dashboard/about">
-            <About />
+          <Route path="/dashboard/category">
+            <Category />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/dashboard/category">
+            <Category />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/dashboard/library">
+            <Library />
+          </Route>
+          <Route path="/dashboard/books">
+            <Books />
+          </Route>
+          <Route path="/dashboard/member">
+            <Member />
+          </Route>
+          <Route path="/dashboard/author">
+            <Author />
           </Route>
         </Switch>
       </div>
     </div>
   )
-}
-
-function Home() {
-  return (
-    <Breadcrumb>
-      <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
-      <Breadcrumb.Item active>Home</Breadcrumb.Item>
-    </Breadcrumb>
-  )
-}
-
-function About() {
-  return (
-    <Breadcrumb>
-      <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
-      <Breadcrumb.Item active>About</Breadcrumb.Item>
-    </Breadcrumb>
-  )
-}
-
-function Users() {
-  return <h2>Users</h2>
 }
 
 export default Dashboard
