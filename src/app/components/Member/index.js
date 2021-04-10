@@ -1,7 +1,5 @@
-import { Box } from '@chakra-ui/layout'
+import React from 'react'
 
-const Category = () => {
-  return <Box>Category</Box>
+export const Member = () => {
+  return <div>Member</div>
 }
-
-export default Category

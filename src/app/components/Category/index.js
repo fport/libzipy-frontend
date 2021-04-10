@@ -1,7 +1,5 @@
-import { Box } from '@chakra-ui/layout'
-
 const Category = () => {
-  return <Box>Category</Box>
+  return <h1>Category</h1>
 }
 
 export default Category

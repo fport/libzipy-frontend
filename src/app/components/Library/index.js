@@ -1,7 +1,5 @@
-import { Box } from '@chakra-ui/layout'
-
 const Library = () => {
-  return <Box>Library</Box>
+  return <h1>Library</h1>
 }
 
 export default Library
