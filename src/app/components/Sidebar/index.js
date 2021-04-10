@@ -4,10 +4,7 @@ import './style.css'
 
 const Sidebar = () => {
   return (
-    <div
-      className="sidebar-container"
-      style={{ width: '300px', background: 'red', height: '100vh' }}
-    >
+    <div className="sidebar-container">
       <Link to="/dashboard/about">About</Link>
     </div>
   )

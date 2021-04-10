@@ -1,3 +1,6 @@
 .sidebar-container {
+    width: 300px;
+    height: 100vh;
+    background-color: #272b40;
     position: fixed;
 }

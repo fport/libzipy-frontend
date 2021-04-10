@@ -1,11 +1,12 @@
 import Sidebar from '../components/Sidebar'
-import { BrowserRouter as Routers, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { Breadcrumb } from 'react-bootstrap'
 
 const Dashboard = () => {
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div style={{ marginLeft: '300px', padding: '1rem', height: '300vh' }}>
+      <div style={{ marginLeft: '300px', padding: '1rem' }}>
         <Switch>
           <Route path="/dashboard/about">
             <About />
@@ -23,11 +24,21 @@ const Dashboard = () => {
 }
 
 function Home() {
-  return <h2>Home</h2>
+  return (
+    <Breadcrumb>
+      <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
+      <Breadcrumb.Item active>Home</Breadcrumb.Item>
+    </Breadcrumb>
+  )
 }
 
 function About() {
-  return <h2>About</h2>
+  return (
+    <Breadcrumb>
+      <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
+      <Breadcrumb.Item active>About</Breadcrumb.Item>
+    </Breadcrumb>
+  )
 }
 
 function Users() {
