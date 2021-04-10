@@ -1,6 +1,59 @@
 .sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 300px;
     height: 100vh;
     background-color: #272b40;
     position: fixed;
+   
+}
+.kolor {
+    color: white;
+}
+
+
+span,i {
+    margin-left: 1rem;
+}
+
+
+.nav-item {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: ease-in;
+    margin: 1.5rem 0;
+}
+
+.nav-item:hover {
+    background-color: #2e3650;
+    border: 1px solid rgb(167, 163, 163);
+    box-shadow:none;
+    opacity:1.0;
+}   
+
+.links {
+    color:wheat;
+}
+
+.login-user {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    width: 300px;
+    height: 75;
+    margin: 2rem;
+}
+.login-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+.login-user > i {
+    font-size: 3rem;
+    color: white;
 }
