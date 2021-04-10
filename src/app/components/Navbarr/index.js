@@ -8,7 +8,7 @@ const Navbars = () => {
     <>
       <Navbar className="navbar" variant="light" expand="lg" sticky="top">
         <Navbar.Brand className="link" href="/">
-          <img src={libzipy} className="logo" alt="logo"></img>
+          <img src={libzipy} className="logo" alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
