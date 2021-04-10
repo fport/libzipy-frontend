@@ -21,7 +21,7 @@ const Navbars = () => {
             </Nav.Link>
           </Nav>
           <Form inline>
-            <Link to="/dashboard">
+            <Link to="/login">
               <button className="logout link">Go to dashboard</button>
             </Link>
           </Form>

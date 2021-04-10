@@ -42,6 +42,12 @@ const Sidebar = () => {
           <span className="links">Yazarlar</span>
         </Link>
       </div>
+      <div className="nav-item">
+        <Link to="/">
+          <i className="fas fa-window-close kolor"></i>
+          <span className="links">Çıkış</span>
+        </Link>
+      </div>
     </div>
   )
 }

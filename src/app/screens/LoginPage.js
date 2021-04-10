@@ -1,6 +1,7 @@
 import './LoginScreen.css'
 import { libraryLogin } from '../assets'
 import { Form, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
@@ -23,9 +24,11 @@ const Login = () => {
                 <Form.Label>Şifre</Form.Label>
                 <Form.Control className="bg-form" type="password" placeholder="Şifreni gir." />
               </Form.Group>
-              <Button className="bt-color" type="submit">
-                Giriş<i class="fas fa-angle-double-right"></i>
-              </Button>
+              <Link to="/dashboard">
+                <Button className="bt-color" type="submit">
+                  Giriş<i className="fas fa-angle-double-right"></i>
+                </Button>
+              </Link>
             </Form>
           </div>
         </div>

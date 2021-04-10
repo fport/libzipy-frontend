@@ -1,43 +1,43 @@
-.lp-container{
+.l-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
     width: 100%;
-    margin-top: 4rem;
-} 
-.lp-content {
+    height: 100vh;
+    margin:0;
+    padding:0;
+    background: #FFAFBD;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffc3a0, #FFAFBD);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffc3a0, #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  }
+  
+  .l-left {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    height: 100%;
-}
-
-.lp-right-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 10%;
     width: 50%;
     height: 100%;
-}
-
-.lp-left-content {
+  }
+  .l-right {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 100%;
-}
-
-.lp-content-image {
-    display: block;
-    height: 100%;
+  }
+  
+  .l-img > img {
     width: 100%;
-    border-radius: 1rem;
-    box-shadow: 10px 10px 5px #ccc;
-      -moz-box-shadow: 10px 10px 5px #ccc;
-      -webkit-box-shadow: 10px 10px 5px #ccc;
-      -khtml-box-shadow: 10px 10px 5px #ccc;
-}
+    height: 100%;
+  }
+  .l-right-container {
+    display: flex;
+  }
+  .bg-form {
+    background-color: #fae0f5;
+  }
+  .bt-color {
+    background-color: #D894E3;
+  }
+  .bt-color:hover {
+    background-color: #D894E3;
+  }

@@ -17,7 +17,7 @@ const LandingPage = () => {
             <br />
             <Link to="/register">
               <Button variant="danger">
-                Hemen üye ol<i class="fab fa-angellist"></i>
+                Hemen üye ol<i className="fab fa-angellist"></i>
               </Button>
             </Link>
           </div>
