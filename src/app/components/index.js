@@ -1,1 +1,1 @@
-//export { default as Try } from './Try'
+export { default as Navbarr } from './Navbarr'
