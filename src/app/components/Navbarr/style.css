@@ -1,0 +1,22 @@
+.container {
+    width:1440px;
+    margin-top: 120px;
+}
+
+.navbar {
+    padding: 1rem 10rem;
+}
+
+.link {
+    color:#ffffff !important;
+}
+
+.logout {
+    background-color: #69c284 !important;
+    padding:0.5rem; 
+}
+
+.logo {
+    width: auto;
+    height: 100px;
+}
