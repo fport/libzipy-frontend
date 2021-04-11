@@ -1,5 +1,5 @@
 # libzipy (React Front-end)
-<p align="center"><img src="https://user-images.githubusercontent.com/56169582/114100897-a6dab200-98cd-11eb-8c5c-499a986c1c48.png" width="180px"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/56169582/114306592-e3ccc180-9ae4-11eb-8871-9566aa197e4f.png" width="180px"/></p>
 
 
 
@@ -14,7 +14,7 @@ You have 2 things you can do:
 
 ## A Little About Design
 
-[`Figma Design Sheet`](https://www.figma.com/)
+[`Figma Design Sheet`](https://www.figma.com/file/j2kfzwz7OkVCafwScqjgAn/Libzipy-K%C3%BCt%C3%BCphane-Projesi?node-id=0%3A1)
 is here in case you want to take a look.
 Bear in mind that it's still in development!
 
@@ -32,7 +32,7 @@ Next up, create yourself a `.env` file!
 
 ```sh
 # .env
-REACT_APP_API_URL = {your backend api url here}
+REACT_APP_API_URL = {your frontend api url here}
 ```
 
 Then you can do:
