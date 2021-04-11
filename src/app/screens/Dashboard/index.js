@@ -1,7 +1,7 @@
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../../components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
-import { Author, Books, Category, Library, Member } from './index'
+import { Author, Books, Category, Library, Member } from '../index'
 
 const Dashboard = () => {
   const url = useLocation()

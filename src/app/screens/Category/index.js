@@ -1,4 +1,4 @@
-import { populerKategorisi } from '../assets'
+import { populerKategorisi } from '../../assets'
 import { Card, Button } from 'react-bootstrap'
 // import { populerKategorisi, tarihKategorisi, cocukKategorisi, klasikKategori } from '../assets'
 import './Category.css'

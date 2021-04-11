@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { Navbarr } from '../components'
-import { libraryLanding } from '../assets'
+import { Navbarr } from '../../components'
+import { libraryLanding } from '../../assets'
 import './LandingPage.css'
 
 const LandingPage = () => {

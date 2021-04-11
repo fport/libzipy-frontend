@@ -1,5 +1,5 @@
 import './LoginScreen.css'
-import { libraryLogin } from '../assets'
+import { libraryLogin } from '../../assets'
 import { Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
