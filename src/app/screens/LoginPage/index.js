@@ -24,7 +24,7 @@ const Login = () => {
                 <Form.Label>Şifre</Form.Label>
                 <Form.Control className="bg-form" type="password" placeholder="Şifreni gir." />
               </Form.Group>
-              <Link to="/dashboard">
+              <Link to="/dashboard/category">
                 <Button className="bt-color" type="submit">
                   Giriş<i className="fas fa-angle-double-right"></i>
                 </Button>

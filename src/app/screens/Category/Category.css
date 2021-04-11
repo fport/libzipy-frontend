@@ -6,3 +6,8 @@
 .category-card {
     margin: 1rem
 }
+
+.title{
+    display: block;
+    margin: 1rem;
+}

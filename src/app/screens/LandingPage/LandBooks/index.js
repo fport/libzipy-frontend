@@ -1,10 +1,16 @@
 import { Navbarr } from '../../../components'
+import { Spinner } from 'react-bootstrap'
 
 const LandBooks = () => {
   return (
     <>
       <Navbarr />
-      <div>LandAuthor</div>
+      <div>
+        <div>
+          <Spinner animation="grow" variant="warning" />
+          KİTAPLAR SAYFASI EKLENCEK
+        </div>
+      </div>
     </>
   )
 }

@@ -36,7 +36,7 @@ const Register = () => {
                   placeholder="Tekrar şifreni gir."
                 />
               </Form.Group>
-              <Link to="/dashboard">
+              <Link to="/dashboard/category">
                 <Button className="bt-color" type="submit">
                   Üye Ol<i className="fas fa-angle-double-right"></i>
                 </Button>

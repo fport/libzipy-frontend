@@ -97,79 +97,34 @@ const Category = () => {
           <div className="drawer">
             {isOpenAdd ? (
               <Drawer>
-                <span>Kütüphane Ekle</span>
-                <InputGroup className="mb-3">
+                <span className="title">Kategori Ekle</span>
+                <InputGroup size="sm" className="mb-3">
                   <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                    <InputGroup.Text id="inputGroup-sizing-sm">Kategori Adı</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl
-                    placeholder="Username"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
-                </InputGroup>
-
-                <InputGroup className="mb-3">
-                  <FormControl
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                  />
-                  <InputGroup.Append>
-                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
-                  </InputGroup.Append>
+                  <FormControl aria-label="Alanı" aria-describedby="inputGroup-sizing-sm" />
                 </InputGroup>
               </Drawer>
             ) : null}
             {isOpenDelete ? (
               <Drawer>
-                <span>Kütüphane Sil</span>
-                <InputGroup className="mb-3">
+                <span className="title">Kategori Sil</span>
+                <InputGroup size="sm" className="mb-3">
                   <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                    <InputGroup.Text id="inputGroup-sizing-sm">Kategori Adı</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl
-                    placeholder="Username"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
-                </InputGroup>
-
-                <InputGroup className="mb-3">
-                  <FormControl
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                  />
-                  <InputGroup.Append>
-                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
-                  </InputGroup.Append>
+                  <FormControl aria-label="Alanı" aria-describedby="inputGroup-sizing-sm" />
                 </InputGroup>
               </Drawer>
             ) : null}
             {isOpenUpdate ? (
               <Drawer>
-                <span>Kütüphaneyi Güncelle</span>
-                <InputGroup className="mb-3">
+                <span className="title">Kategori Güncelle</span>
+                <InputGroup size="sm" className="mb-3">
                   <InputGroup.Prepend>
-                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                    <InputGroup.Text id="inputGroup-sizing-sm">Kategori Adı</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl
-                    placeholder="Username"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
-                </InputGroup>
-
-                <InputGroup className="mb-3">
-                  <FormControl
-                    placeholder="Recipient's username"
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
-                  />
-                  <InputGroup.Append>
-                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
-                  </InputGroup.Append>
+                  <FormControl aria-label="Alanı" aria-describedby="inputGroup-sizing-sm" />
                 </InputGroup>
               </Drawer>
             ) : null}
