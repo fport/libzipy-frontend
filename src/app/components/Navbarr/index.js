@@ -22,7 +22,9 @@ const Navbars = () => {
           </Nav>
           <Form inline>
             <Link to="/login">
-              <button className="logout link">Go to dashboard</button>
+              <button className="logout link">
+                Giriş Yap<i className="fas fa-feather-alt"></i>
+              </button>
             </Link>
           </Form>
         </Navbar.Collapse>

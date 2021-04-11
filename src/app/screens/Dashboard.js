@@ -6,7 +6,7 @@ import { Author, Books, Category, Library, Member } from './index'
 const Dashboard = () => {
   const url = useLocation()
   const tab = url.pathname.split('/')[2] ? url.pathname.split('/')[2] : null
-  const activeTabs = tab ? tab.charAt(0).toUpperCase() + tab.slice(1) : null
+  const activeTab = tab ? tab.charAt(0).toUpperCase() + tab.slice(1) : null
 
   return (
     <div style={{ display: 'flex' }}>
@@ -14,7 +14,7 @@ const Dashboard = () => {
       <div style={{ marginLeft: '300px', width: '100%', padding: '1rem' }}>
         <Breadcrumb>
           <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
-          <Breadcrumb.Item active>{activeTabs}</Breadcrumb.Item>
+          <Breadcrumb.Item active>{activeTab}</Breadcrumb.Item>
         </Breadcrumb>
         <Switch>
           <Route path="/dashboard/category">

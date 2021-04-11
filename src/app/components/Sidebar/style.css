@@ -1,4 +1,5 @@
 .sidebar-container {
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,9 +24,9 @@ span,i {
     flex-direction: row;
     width: 250px;
     border-radius: 5px;
-    text-decoration: none;
     transition: ease-in;
     margin: 1.5rem 0;
+    border: 1px solid transparent;
 }
 
 .nav-item:hover {
@@ -33,7 +34,10 @@ span,i {
     border: 1px solid rgb(167, 163, 163);
     box-shadow:none;
     opacity:1.0;
-}   
+}  
+.nav-item:hover > a {
+    text-decoration: none;
+}  
 
 .links {
     color:wheat;
