@@ -1,6 +1,6 @@
 import Sidebar from '../../components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
-import { Breadcrumb } from 'react-bootstrap'
+import { Breadcrumb, Tab, Tabs } from 'react-bootstrap'
 import { Author, Books, Category, Library, Member } from '../index'
 
 const Dashboard = () => {
@@ -11,7 +11,7 @@ const Dashboard = () => {
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div style={{ marginLeft: '300px', width: '100%', padding: '1rem' }}>
+      <div style={{ marginLeft: '300px', width: '100%', padding: '1rem', marginBottom: '0' }}>
         <Breadcrumb>
           <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
           <Breadcrumb.Item active>{activeTab}</Breadcrumb.Item>

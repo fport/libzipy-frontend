@@ -1,7 +1,8 @@
-// import { populerKategorisi } from '../../assets'
-import { Card, Button } from 'react-bootstrap'
+import { useState } from 'react'
+import { Card, Button, Tab, Tabs, InputGroup, FormControl } from 'react-bootstrap'
 import { populerKategorisi, tarihKategorisi, cocukKategorisi, klasikKategori } from '../../assets'
 import './Category.css'
+import { Drawer } from '../../components'
 
 const kategoriler = [
   {
@@ -43,24 +44,65 @@ const kategoriler = [
 ]
 
 const Category = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <div>
-      <div className="category-container">
-        {kategoriler.map((kate) => (
-          <div key={kate.id} className="category-card">
-            <Card style={{ width: '18rem' }}>
-              <Card.Img className="category-img" variant="top" src={kate.path} alt={kate.name} />
-              <Card.Body>
-                <Card.Title>{kate.name}</Card.Title>
-                <Card.Text>
-                  {kate.name} ile ilgileniyorsan tam sana göre yeni kitaplarımız geldi :D
-                </Card.Text>
-                <Button variant="primary">Kitapları görmek için tıkla</Button>
-              </Card.Body>
-            </Card>
+      <Tabs defaultActiveKey="home" transition={false} id="noanim-tab-example">
+        <Tab eventKey="home" title="Liste">
+          <div className="category-container">
+            {kategoriler.map((kate) => (
+              <div key={kate.id} className="category-card">
+                <Card style={{ width: '18rem' }}>
+                  <Card.Img
+                    className="category-img"
+                    variant="top"
+                    src={kate.path}
+                    alt={kate.name}
+                  />
+                  <Card.Body>
+                    <Card.Title>{kate.name}</Card.Title>
+                    <Card.Text>
+                      {kate.name} ile ilgileniyorsan tam sana göre yeni kitaplarımız geldi :D
+                    </Card.Text>
+                    <Button variant="primary">Kitapları görmek için tıkla</Button>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </Tab>
+        <Tab eventKey="profile" title="İşlemler">
+          <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Kapat' : 'Aç'}</button>
+          <div className="drawer">
+            {isOpen ? (
+              <Drawer>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </InputGroup>
+
+                <InputGroup className="mb-3">
+                  <FormControl
+                    placeholder="Recipient's username"
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                  />
+                  <InputGroup.Append>
+                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+                  </InputGroup.Append>
+                </InputGroup>
+              </Drawer>
+            ) : null}
+          </div>{' '}
+        </Tab>
+      </Tabs>
     </div>
   )
 }
