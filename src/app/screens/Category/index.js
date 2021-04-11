@@ -1,38 +1,44 @@
-import { populerKategorisi } from '../../assets'
+// import { populerKategorisi } from '../../assets'
 import { Card, Button } from 'react-bootstrap'
-// import { populerKategorisi, tarihKategorisi, cocukKategorisi, klasikKategori } from '../assets'
+import { populerKategorisi, tarihKategorisi, cocukKategorisi, klasikKategori } from '../../assets'
 import './Category.css'
 
 const kategoriler = [
   {
     id: 1,
     kategori: 'cocukKategorisi',
-    name: 'Cocuk Kitap Kategorisi'
+    name: 'Cocuk Kitap Kategorisi',
+    path: cocukKategorisi
   },
   {
     id: 2,
     kategori: 'klasikKategori',
-    name: 'Klasik Kitap Kategorisi'
+    name: 'Klasik Kitap Kategorisi',
+    path: klasikKategori
   },
   {
     id: 3,
     kategori: 'populerKategorisi',
-    name: 'Popüler Kitap Kategorisi'
+    name: 'Popüler Kitap Kategorisi',
+    path: populerKategorisi
   },
   {
     id: 4,
     kategori: 'tarihKategorisi',
-    name: 'Tarih Kitap Kategorisi'
+    name: 'Tarih Kitap Kategorisi',
+    path: tarihKategorisi
   },
   {
     id: 5,
     kategori: 'populerKategorisi',
-    name: 'Popüler Kitap Kategorisi'
+    name: 'Popüler Kitap Kategorisi',
+    path: populerKategorisi
   },
   {
     id: 6,
     kategori: 'tarihKategorisi',
-    name: 'Tarih Kitap Kategorisi'
+    name: 'Tarih Kitap Kategorisi',
+    path: tarihKategorisi
   }
 ]
 
@@ -43,12 +49,7 @@ const Category = () => {
         {kategoriler.map((kate) => (
           <div key={kate.id} className="category-card">
             <Card style={{ width: '18rem' }}>
-              <Card.Img
-                className="category-img"
-                variant="top"
-                src={populerKategorisi}
-                alt={kate.name}
-              />
+              <Card.Img className="category-img" variant="top" src={kate.path} alt={kate.name} />
               <Card.Body>
                 <Card.Title>{kate.name}</Card.Title>
                 <Card.Text>
