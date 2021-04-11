@@ -1,5 +1,11 @@
-.drawer {
-    height: 100%;
-    width: 350px;
-    z-index: 3;
+.category-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.category-card {
+    margin: 1rem
+}
+.category-img {
+    width: 100%; height: auto;
 }
