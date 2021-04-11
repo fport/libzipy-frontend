@@ -43,6 +43,11 @@ span,i {
     color:wheat;
 }
 
+.linkz {
+    display: flex;
+    color:wheat;
+}
+
 .login-user {
     display: flex;
     align-items: center;
@@ -57,7 +62,18 @@ span,i {
     justify-content: center;
     align-items: left;
 }
-.login-user > i {
+.login-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-profile > i {
+    margin : 0;
+}
+.login-user > .login-profile > i {
+    display: flex;
     font-size: 3rem;
     color: white;
+    margin-bottom: 4px;
 }

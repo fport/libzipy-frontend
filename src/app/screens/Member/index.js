@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Member = () => {
-  return <div>üyecilşer</div>
+  return <div>Üyeler</div>
 }
 
 export default Member

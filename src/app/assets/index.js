@@ -1,5 +1,5 @@
 import libraryLanding from './library-landing.svg'
-import libzipy from './libzipy.png'
+import libzipy from './libzipy.svg'
 import libraryLogin from './library-login.svg'
 import klasikKategori from './klasik-kategorisi.svg'
 import tarihKategorisi from './tarih-kategorisi.svg'

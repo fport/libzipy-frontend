@@ -6,7 +6,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <div className="login-user">
-        <i className="fas fa-user-circle osman"></i>
+        <div className="login-profile">
+          <i className="fas fa-user-circle osman" />
+          <h6 className="linkz">Üye</h6>
+        </div>
         <div className="login-info">
           <h3 className="links"> Osman Abi</h3>
           <h6 className="links">osmanabi@gmail.com</h6>
@@ -43,9 +46,9 @@ const Sidebar = () => {
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/release">
+        <Link to="/dashboard/member-borrow">
           <i className="fas fa-bacon kolor"></i>
-          <span className="links">Geliştirmeler & Yol Haritası</span>
+          <span className="links">Ödünç Aldığım Kitaplar</span>
         </Link>
       </div>
       <div className="nav-item">

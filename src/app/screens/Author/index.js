@@ -1,5 +1,5 @@
 const Author = () => {
-  return <div>Yazaaarlar Duuur</div>
+  return <div>Değerli Yazarlar</div>
 }
 
 export default Author

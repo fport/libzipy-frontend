@@ -22,3 +22,10 @@
     width: auto;
     height: 100px;
 }
+
+.nav-el {
+    padding: 0.7rem;
+    background-color: #F4B030;
+    border-radius: 1rem;
+    color: white;
+}

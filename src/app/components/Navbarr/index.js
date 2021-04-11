@@ -13,12 +13,15 @@ const Navbars = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link className="link" href="/main">
-              Dava Listele
-            </Nav.Link>
-            <Nav.Link className="link" href="/add">
-              Dava Ekle
-            </Nav.Link>
+            <Link to="/release">
+              <span className="nav-el">Kütüphaneler</span>
+            </Link>
+            <Link to="/release">
+              <span className="nav-el">Kitaplar</span>
+            </Link>
+            <Link to="/release">
+              <span className="nav-el">Yazarlar</span>
+            </Link>
           </Nav>
           <Form inline>
             <Link to="/login">

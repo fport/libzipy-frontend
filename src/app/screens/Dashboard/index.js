@@ -1,7 +1,7 @@
 import Sidebar from '../../components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
-import { Breadcrumb, Tab, Tabs } from 'react-bootstrap'
-import { Author, Books, Category, Library, Member } from '../index'
+import { Breadcrumb } from 'react-bootstrap'
+import { Author, Books, Category, Library, Member, MemeberBorrow } from '../index'
 
 const Dashboard = () => {
   const url = useLocation()
@@ -17,8 +17,8 @@ const Dashboard = () => {
           <Breadcrumb.Item active>{activeTab}</Breadcrumb.Item>
         </Breadcrumb>
         <Switch>
-          <Route path="/dashboard/category">
-            <Category />
+          <Route path="/dashboard/member-borrow">
+            <MemeberBorrow />
           </Route>
           <Route path="/dashboard/category">
             <Category />
