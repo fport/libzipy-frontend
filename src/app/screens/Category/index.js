@@ -44,7 +44,25 @@ const kategoriler = [
 ]
 
 const Category = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpenAdd, setIsOpenAdd] = useState(false)
+  const [isOpenDelete, setIsOpenDelete] = useState(false)
+  const [isOpenUpdate, setIsOpenUpdate] = useState(false)
+
+  const openAdd = () => {
+    setIsOpenAdd(!isOpenAdd)
+    setIsOpenDelete(false)
+    setIsOpenUpdate(false)
+  }
+  const openDelete = () => {
+    setIsOpenAdd(false)
+    setIsOpenDelete(!isOpenDelete)
+    setIsOpenUpdate(false)
+  }
+  const openUpdate = () => {
+    setIsOpenAdd(false)
+    setIsOpenDelete(false)
+    setIsOpenUpdate(!isOpenUpdate)
+  }
 
   return (
     <div>
@@ -73,10 +91,13 @@ const Category = () => {
           </div>
         </Tab>
         <Tab eventKey="profile" title="İşlemler">
-          <button onClick={() => setIsOpen(!isOpen)}>{isOpen ? 'Kapat' : 'Aç'}</button>
+          <button onClick={openAdd}>{isOpenAdd ? 'Kapat' : 'Ekle'}</button>
+          <button onClick={openDelete}>{isOpenDelete ? 'Kapat' : 'Sil'}</button>
+          <button onClick={openUpdate}>{isOpenUpdate ? 'Kapat' : 'Güncelle'}</button>
           <div className="drawer">
-            {isOpen ? (
+            {isOpenAdd ? (
               <Drawer>
+                <span>Kütüphane Ekle</span>
                 <InputGroup className="mb-3">
                   <InputGroup.Prepend>
                     <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
@@ -100,7 +121,59 @@ const Category = () => {
                 </InputGroup>
               </Drawer>
             ) : null}
-          </div>{' '}
+            {isOpenDelete ? (
+              <Drawer>
+                <span>Kütüphane Sil</span>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </InputGroup>
+
+                <InputGroup className="mb-3">
+                  <FormControl
+                    placeholder="Recipient's username"
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                  />
+                  <InputGroup.Append>
+                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+                  </InputGroup.Append>
+                </InputGroup>
+              </Drawer>
+            ) : null}
+            {isOpenUpdate ? (
+              <Drawer>
+                <span>Kütüphaneyi Güncelle</span>
+                <InputGroup className="mb-3">
+                  <InputGroup.Prepend>
+                    <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                  </InputGroup.Prepend>
+                  <FormControl
+                    placeholder="Username"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </InputGroup>
+
+                <InputGroup className="mb-3">
+                  <FormControl
+                    placeholder="Recipient's username"
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                  />
+                  <InputGroup.Append>
+                    <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
+                  </InputGroup.Append>
+                </InputGroup>
+              </Drawer>
+            ) : null}
+          </div>
         </Tab>
       </Tabs>
     </div>
