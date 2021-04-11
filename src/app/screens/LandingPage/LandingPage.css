@@ -41,3 +41,8 @@
       -webkit-box-shadow: 10px 10px 5px #ccc;
       -khtml-box-shadow: 10px 10px 5px #ccc;
 }
+
+.libzipy {
+    margin-bottom: 1px;
+    text-decoration: #C82332 underline wavy;
+}

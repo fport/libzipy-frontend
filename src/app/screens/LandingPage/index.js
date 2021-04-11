@@ -11,7 +11,9 @@ const LandingPage = () => {
       <div className="lp-container">
         <div className="lp-content">
           <div className="lp-right-content">
-            <h1>Libzipy'e Hoşgeldin</h1>
+            <h1>
+              <span className="libzipy">Libzipy'e</span> Hoşgeldin
+            </h1>
             <br />
             <h6>Kitaplar ödünç alabilir, yazarlarıyla birebir görüşme fırsatı yakalayabilirsin.</h6>
             <br />

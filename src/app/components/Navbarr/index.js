@@ -13,13 +13,13 @@ const Navbars = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/release">
+            <Link to="/library">
               <span className="nav-el">Kütüphaneler</span>
             </Link>
-            <Link to="/release">
+            <Link to="/books">
               <span className="nav-el">Kitaplar</span>
             </Link>
-            <Link to="/release">
+            <Link to="/author">
               <span className="nav-el">Yazarlar</span>
             </Link>
           </Nav>

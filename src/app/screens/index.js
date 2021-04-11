@@ -1,4 +1,7 @@
 export { default as LandingPage } from './LandingPage'
+export { default as LandBooks } from './LandingPage/LandBooks'
+export { default as LandLibrary } from './LandingPage/LandLibrary'
+export { default as LandAuthor } from './LandingPage/LandAuthor'
 export { default as LoginPage } from './LoginPage'
 export { default as RegisterPage } from './RegisterPage'
 export { default as Dashboard } from './Dashboard'
