@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -43,6 +44,9 @@
   },
   "devDependencies": {
     "eslint": "^7.26.0",
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "sass": "^1.32.13",
+    "sass-loader": "^10.1.1",
+    "webpack": "^4.44.2"
   }
 }

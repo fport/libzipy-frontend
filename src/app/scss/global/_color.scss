@@ -1,0 +1,80 @@
+/*
+    -------------- Default Colors --------------
+*/
+
+$bg-color: #fff7dc !default;
+$bg-color-light: lighten($bg-color, 5%) !default;
+$bg-color-dark: darken($bg-color, 5%) !default;
+
+$primary-color: #617df6 !default;
+$primary-color-light: lighten($primary-color, 5%) !default;
+$primary-color-dark: darken($primary-color, 5%) !default;
+$primary-color-border: darken($primary-color, 1%) !default;
+
+$secondary-color: #fba77f !default;
+$secondary-color-light: lighten($secondary-color, 5%) !default;
+$secondary-color-dark: darken($secondary-color, 5%) !default;
+
+$danger-color: #e53549 !default;
+$danger-color-light: lighten($danger-color, 5%) !default;
+$danger-color-dark: darken($danger-color, 5%) !default;
+
+$warning-color: #ffcf5c !default;
+$warning-color-light: lighten($warning-color, 5%) !default;
+$warning-color-dark: darken($warning-color, 5%) !default;
+
+$success-color: #00c48c !default;
+$success-color-light: lighten($success-color, 5%) !default;
+$success-color-dark: darken($success-color, 5%) !default;
+
+$info-color: #03a9f4 !default;
+$info-color-light: lighten($info-color, 5%) !default;
+$info-color-dark: darken($info-color, 5%) !default;
+
+$light-color: #f4f6f9;
+$light-color-light: lighten($light-color, 5%) !default;
+$light-color-dark: darken($light-color, 5%) !default;
+
+$orange-color: #f26949;
+$orange-color-light: lighten($orange-color, 5%) !default;
+$orange-color-dark: darken($orange-color, 5%) !default;
+
+$yellow-color: #ffbb6d;
+$yellow-color-light: lighten($yellow-color, 5%) !default;
+$yellow-color-dark: darken($yellow-color, 5%) !default;
+
+$light-gray-color: #fdfdfd;
+$light-gray-color-light: lighten($light-gray-color, 5%) !default;
+$light-gray-color: darken($light-gray-color, 5%) !default;
+
+$dark-color: #343a40;
+$dark-color-light: lighten($dark-color, 5%) !default;
+$dark-color-dark: darken($dark-color, 5%) !default;
+
+$aqua-color: #4eabe7;
+$aqua-color-light: lighten($aqua-color, 5%) !default;
+$aqua-color-dark: darken($aqua-color, 5%) !default;
+
+$white-color: #fff;
+$black-color: #222222;
+$shadow-color: #c8c8c8;
+$transparent: transparent;
+
+//timeline colors
+$blue-timeline-color: rgb(33, 150, 243);
+$green-timeline-color: #10cc52;
+$red-timeline-color: rgb(233, 30, 99);
+
+// Colors
+$blue-color: #97d5f8;
+$purple-color: #6f42c1;
+$pink-color: #e83e8c;
+$red-color: #dc3545;
+$dusty-rose-color: #ec9896;
+$green-color: #28a745;
+$cool-grey-color: #88aba3;
+$teal-color: #20c997;
+$cyan-color: #17a2b8;
+$gray-color: #6c757d;
+$dark-gray-color: #343a40;
+$half-white-color: rgba(225, 225, 225, 0.5);
