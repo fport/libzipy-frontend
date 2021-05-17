@@ -1,0 +1,13 @@
+.category-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.category-card {
+    margin: 1rem
+}
+
+.title{
+    display: block;
+    margin: 1rem;
+}
