@@ -1,3 +1,4 @@
+import React from 'react'
 import { Navbarr } from '../../../components'
 import { Spinner } from 'react-bootstrap'
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import './RegisterPage.css'
 import { libraryLogin } from '../../assets'
 import { Form, Button } from 'react-bootstrap'
