@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../../../components/Sidebar'
+import Sidebar from '../../../infrastructure/components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { Author, Books, Category, Library, Member, MemeberBorrow } from '../index'

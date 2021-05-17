@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { Navbarr } from '../../../components'
+import { Navbarr } from '../../components'
 import { libraryLanding } from '../../../assets'
 import './LandingPage.css'
 

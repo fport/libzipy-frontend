@@ -2,7 +2,7 @@ import React,{ useState } from 'react'
 import { Card, Button, Tab, Tabs, InputGroup, FormControl } from 'react-bootstrap'
 import { populerKategorisi, tarihKategorisi, cocukKategorisi, klasikKategori } from '../../../assets'
 import './Category.css'
-import { Drawer } from '../../../components'
+import { Drawer } from '../../../infrastructure/components'
 
 const kategoriler = [
   {

@@ -13,7 +13,7 @@ import {
   LandBooks
 } from './views/index'
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import store from '../store'
 
 const Router = () => {
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'localhost:5000'
