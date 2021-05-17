@@ -1,0 +1,27 @@
+.btn {
+    border: none;
+
+    &-sm {
+        border: none;
+        padding: 0.3rem 1rem;
+        border-radius: 4px;
+        font-weight: 100;
+        font-size: 16px;
+    }
+
+    &-md {
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 300;
+        font-size: 18px;
+    }
+
+    &-lg {
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 530;
+        font-size: 21px;
+    }
+}
