@@ -11,7 +11,7 @@ import {
   LandAuthor,
   LandLibrary,
   LandBooks
-} from './screens/index'
+} from './views/index'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 
