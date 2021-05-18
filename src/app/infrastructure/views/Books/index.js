@@ -1,10 +1,9 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
-import './Books.css'
 
 const Books = () => {
   return (
-    <div>
+    <div className="books-container">
       <Table striped bordered hover>
         <thead>
           <tr>
