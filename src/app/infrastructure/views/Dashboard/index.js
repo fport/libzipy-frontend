@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
-      <div style={{ marginLeft: '300px', width: '100%', padding: '1rem', marginBottom: '0' }}>
+      <div style={{ marginLeft: '324px', width: '100%', padding: '1rem', marginBottom: '0' }}>
         <Breadcrumb>
           <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
           <Breadcrumb.Item active>{activeTab}</Breadcrumb.Item>

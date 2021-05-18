@@ -1,11 +1,11 @@
-.lp-container{
+.lp-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 500px;
     width: 100%;
     margin-top: 4rem;
-} 
+}
 .lp-content {
     display: flex;
     justify-content: space-around;
@@ -37,12 +37,12 @@
     width: 100%;
     border-radius: 1rem;
     box-shadow: 10px 10px 5px #ccc;
-      -moz-box-shadow: 10px 10px 5px #ccc;
-      -webkit-box-shadow: 10px 10px 5px #ccc;
-      -khtml-box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
 }
 
 .libzipy {
     margin-bottom: 1px;
-    text-decoration: #C82332 underline wavy;
+    text-decoration: #c82332 underline wavy;
 }

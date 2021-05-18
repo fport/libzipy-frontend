@@ -13,7 +13,7 @@ html {
     line-height: 1.15; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     font-family: $sans-serif;
-    background-color: $bg-color;
+    background-color: $white-color;
 }
 
 /* Sections
@@ -85,6 +85,7 @@ a {
     &:hover,
     &:active {
         color: inherit;
+        text-decoration: none;
     }
 }
 
@@ -376,11 +377,11 @@ template {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: $primary-color-light;
+    background: $dark-color-light;
     border-radius: 12px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: $primary-color-light;
+    background: $dark-color-light;
 }
