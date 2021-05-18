@@ -11,13 +11,21 @@ $primary-color-light: lighten($primary-color, 5%) !default;
 $primary-color-dark: darken($primary-color, 5%) !default;
 $primary-color-border: darken($primary-color, 1%) !default;
 
+$dark-color: #181c23;
+$dark-color-light: #212831;
+$dark-color-dark: darken($dark-color, 5%) !default;
+
+$danger-color: #ff5252 !default;
+$danger-color-light: lighten($danger-color, 5%) !default;
+$danger-color-dark: darken($danger-color, 5%) !default;
+
+$info-color: #d3d3fd !default;
+$info-color-light: lighten($info-color, 5%) !default;
+$info-color-dark: darken($info-color, 5%) !default;
+
 $secondary-color: #fba77f !default;
 $secondary-color-light: lighten($secondary-color, 5%) !default;
 $secondary-color-dark: darken($secondary-color, 5%) !default;
-
-$danger-color: #e53549 !default;
-$danger-color-light: lighten($danger-color, 5%) !default;
-$danger-color-dark: darken($danger-color, 5%) !default;
 
 $warning-color: #ffcf5c !default;
 $warning-color-light: lighten($warning-color, 5%) !default;
@@ -26,10 +34,6 @@ $warning-color-dark: darken($warning-color, 5%) !default;
 $success-color: #00c48c !default;
 $success-color-light: lighten($success-color, 5%) !default;
 $success-color-dark: darken($success-color, 5%) !default;
-
-$info-color: #03a9f4 !default;
-$info-color-light: lighten($info-color, 5%) !default;
-$info-color-dark: darken($info-color, 5%) !default;
 
 $light-color: #f4f6f9;
 $light-color-light: lighten($light-color, 5%) !default;
@@ -46,10 +50,6 @@ $yellow-color-dark: darken($yellow-color, 5%) !default;
 $light-gray-color: #fdfdfd;
 $light-gray-color-light: lighten($light-gray-color, 5%) !default;
 $light-gray-color: darken($light-gray-color, 5%) !default;
-
-$dark-color: #343a40;
-$dark-color-light: lighten($dark-color, 5%) !default;
-$dark-color-dark: darken($dark-color, 5%) !default;
 
 $aqua-color: #4eabe7;
 $aqua-color-light: lighten($aqua-color, 5%) !default;

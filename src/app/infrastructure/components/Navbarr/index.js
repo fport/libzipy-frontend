@@ -1,39 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Navbar, Nav, Form } from 'react-bootstrap'
 import { libzipy } from '../../../assets'
-import './style.css'
 
 const Navbars = () => {
   return (
-    <>
-      <Navbar className="navbar" variant="light" expand="lg" sticky="top">
-        <Navbar.Brand className="link" href="/">
-          <img src={libzipy} className="logo" alt="logo" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Link to="/library">
-              <span className="nav-el">Kütüphaneler</span>
-            </Link>
-            <Link to="/books">
-              <span className="nav-el">Kitaplar</span>
-            </Link>
-            <Link to="/author">
-              <span className="nav-el">Yazarlar</span>
-            </Link>
-          </Nav>
-          <Form inline>
-            <Link to="/login">
-              <button className="logout link">
-                Giriş Yap<i className="fas fa-feather-alt"></i>
-              </button>
-            </Link>
-          </Form>
-        </Navbar.Collapse>
-      </Navbar>
-    </>
+    <div className="navbar-container">
+    <div className="navbar-content">
+      <div className="navbar-content-left">
+        <Link to="/">
+          <img className="logo" src={libzipy} />
+        </Link>
+      </div>
+      <div className="navbar-content-right">
+        <button className="btn-md navbar-button">
+          <Link to="/library">
+            <i className="fas fa-home" style={{ marginRight: '0.5rem' }}></i>
+            Kütüphaneler
+          </Link>
+        </button>
+        <button className="btn-md navbar-button">
+          <Link to="/books">
+            <i className="fas fa-rocket" style={{ marginRight: '0.5rem' }}></i>Kitaplar
+          </Link>
+        </button>
+        <button className="btn-md navbar-button">
+          <Link to="/author">
+            <i className="fas fa-bookmark" style={{ marginRight: '0.5rem' }}></i>Yazarlar
+          </Link>
+        </button>
+        <button className="btn-md navbar-button">
+          <Link to="/login">
+            <i className="fas fa-bolt" style={{ marginRight: '0.5rem' }}></i> Giriş Yap
+          </Link>
+        </button>
+      </div>
+    </div>
+  </div>
   )
 }
 
