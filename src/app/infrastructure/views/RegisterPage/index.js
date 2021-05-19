@@ -1,52 +1,97 @@
 import React from 'react'
-import './RegisterPage.css'
-import { libraryLogin } from '../../../assets'
-import { Form, Button } from 'react-bootstrap'
+import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
 
-const Register = () => {
+const Register = ({ history }) => {
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    history.push('/login')
+  }
+
   return (
-    <>
-      <div className="l-container">
-        <div className="l-left">
-          <img className="l-img" src={libraryLogin} alt="library login" />
-        </div>
-        <div className="l-right">
-          <div className="l-right-container">
-            <Form>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Adınız</Form.Label>
-                <Form.Control className="bg-form" type="text" placeholder="Adınızı giriniz" />
-              </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>E-Posta</Form.Label>
-                <Form.Control className="bg-form" type="email" placeholder="E-Postanı gir." />
-                <Form.Text className="text-muted">
-                  E-postanızı asla başkalarıyla paylaşmayacağız.
-                </Form.Text>
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Şifre</Form.Label>
-                <Form.Control className="bg-form" type="password" placeholder="Şifreni gir." />
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Şifrenizi Onaylayın</Form.Label>
-                <Form.Control
-                  className="bg-form"
-                  type="password"
-                  placeholder="Tekrar şifreni gir."
-                />
-              </Form.Group>
-              <Link to="/dashboard/category">
-                <Button className="bt-color" type="submit">
-                  Üye Ol<i className="fas fa-angle-double-right"></i>
-                </Button>
-              </Link>
-            </Form>
+    <div className="register-container center">
+      <div className="register-wrapper">
+        <div className="register-left">
+          <div className="register-left-top">
+            <div className="register-left-top-text">
+              <h1>HEYECANLI MISIN ?</h1>
+              <p>
+                Hesabın bulunuyorsa, <Link to="/login">Giriş Yap!</Link>
+              </p>
+            </div>
           </div>
+          <div className="register-left-mid">
+            <form onSubmit={onSubmitHandler} className="register-left-mid-form">
+              <div className="register-left-mid-user center">
+                <div>
+                  <label>Ad</label>
+                  <input type="text" placeholder="Osman" required />
+                </div>
+                <div>
+                  <label>Soyad</label>
+                  <input type="text" placeholder="Etesam" required />
+                </div>
+              </div>
+
+              {/* <div className="register-left-mid-gender">
+                <div className="register-left-mid-gender-wrapper">
+                  <label>Cinsiyet</label>
+                  <div className="radio center">
+                    <span>
+                      <input type="radio" value="Male" name="gender" /> Erkek
+                    </span>
+                    <span>
+                      <input type="radio" value="Female" name="gender" /> Kadın
+                    </span>
+                  </div>
+                </div>
+              </div> */}
+
+              <label>Telefon No</label>
+              <input
+                type="tel"
+                // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+                placeholder="553-456-67-89"
+                required
+              />
+
+              <label>Adres</label>
+              <textarea type="text" rows="3" cols="40" required wrap="hard" />
+
+              <div className="register-left-mid-user center">
+                <div>
+                  <label>Şifre</label>
+                  <input
+                    type="password"
+                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Şifre Onay</label>
+                  <input
+                    type="password"
+                    placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                    required
+                  />
+                </div>
+              </div>
+
+              <label>Email</label>
+              <input type="email" placeholder="osmanabi@gmail.com" required />
+
+              <button className="btn-lg submit-data" type="submit">
+                Üye Ol
+              </button>
+            </form>
+          </div>
+          <div className="register-left-bot"></div>
+        </div>
+        <div className="register-right">
+          <img src={Signin} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export default Register
