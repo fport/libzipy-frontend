@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
-import { dataReducer } from '../infrastructure/reducers/data-reducer'
+import { domain } from './domain'
+import { ui } from './ui'
 
 /* src/reducer rootunda olusturdugumuz reducerlarimizi combineReducer ile 
 birlestiriyoruz. Redux DevTools kisminda gordugun stateler burdan geliyor */
 
 export const reducer = combineReducers({
-  viewData: dataReducer,
+  domain: domain,
+  ui: ui
 })

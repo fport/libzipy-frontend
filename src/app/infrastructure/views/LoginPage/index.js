@@ -22,7 +22,7 @@ const Login = ({ history }) => {
           </div>
           <div className="login-left-mid">
             <form onSubmit={onSubmitHandler} className="login-left-mid-form">
-              <label>Kullanıcı Adı</label>
+              <label>Email</label>
               <input type="text" placeholder="osmanabi@gmail.com" />
               <label>Şifre</label>
               <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" />
