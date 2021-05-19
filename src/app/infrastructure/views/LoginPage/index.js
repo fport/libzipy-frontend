@@ -1,10 +1,19 @@
 import React from 'react'
 import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLoginActions } from './actions/creators'
 
 const Login = ({ history }) => {
+  const dispatch = useDispatch()
+  const selectedData = useSelector((data) => data.domain.info.userInfo)
+  const name = 'furkan'
+
+  console.log(selectedData)
+
   const onSubmitHandler = (e) => {
     e.preventDefault()
+    dispatch(userLoginActions({ name }))
     history.push('/dashboard/category')
   }
 
