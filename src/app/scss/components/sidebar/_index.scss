@@ -79,7 +79,7 @@
 
                 span,
                 i {
-                    color: $info-color;
+                    color: $aqua-color;
                 }
             }
         }
@@ -99,6 +99,11 @@
                 height: 40px;
                 background-color: $white-color;
                 border-radius: 16px;
+
+                span {
+                    color: $dark-color-dark;
+                    letter-spacing: 2px;
+                }
             }
         }
     }

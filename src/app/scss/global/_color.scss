@@ -19,9 +19,13 @@ $danger-color: #ff5252 !default;
 $danger-color-light: lighten($danger-color, 5%) !default;
 $danger-color-dark: darken($danger-color, 5%) !default;
 
-$info-color: #d3d3fd !default;
+$info-color: #8699da !default;
 $info-color-light: lighten($info-color, 5%) !default;
 $info-color-dark: darken($info-color, 5%) !default;
+
+$light-color: #f4f6f9;
+$light-color-light: lighten($light-color, 5%) !default;
+$light-color-dark: darken($light-color, 5%) !default;
 
 $secondary-color: #fba77f !default;
 $secondary-color-light: lighten($secondary-color, 5%) !default;
@@ -35,10 +39,6 @@ $success-color: #00c48c !default;
 $success-color-light: lighten($success-color, 5%) !default;
 $success-color-dark: darken($success-color, 5%) !default;
 
-$light-color: #f4f6f9;
-$light-color-light: lighten($light-color, 5%) !default;
-$light-color-dark: darken($light-color, 5%) !default;
-
 $orange-color: #f26949;
 $orange-color-light: lighten($orange-color, 5%) !default;
 $orange-color-dark: darken($orange-color, 5%) !default;
@@ -51,7 +51,7 @@ $light-gray-color: #fdfdfd;
 $light-gray-color-light: lighten($light-gray-color, 5%) !default;
 $light-gray-color: darken($light-gray-color, 5%) !default;
 
-$aqua-color: #4eabe7;
+$aqua-color: #d6dae7;
 $aqua-color-light: lighten($aqua-color, 5%) !default;
 $aqua-color-dark: darken($aqua-color, 5%) !default;
 
