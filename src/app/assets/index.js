@@ -9,6 +9,8 @@ import libraryA from './libraryA.svg'
 import libraryB from './libraryB.svg'
 import libraryC from './libraryC.svg'
 import libraryD from './libraryD.svg'
+import Signin from './sign-in.svg'
+import Icodots from './ico-dots.svg'
 
 export {
   libraryLanding,
@@ -21,5 +23,7 @@ export {
   libraryA,
   libraryB,
   libraryC,
-  libraryD
+  libraryD,
+  Signin,
+  Icodots
 }

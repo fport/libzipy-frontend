@@ -1,40 +1,46 @@
 import React from 'react'
-import './LoginScreen.css'
-import { libraryLogin } from '../../../assets'
-import { Form, Button } from 'react-bootstrap'
+import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({ history }) => {
+  const onSubmitHandler = (e) => {
+    e.preventDefault()
+    history.push('/dashboard/category')
+  }
+
   return (
-    <>
-      <div className="l-container">
-        <div className="l-left">
-          <img className="l-img" src={libraryLogin} alt="library login" />
-        </div>
-        <div className="l-right">
-          <div className="l-right-container">
-            <Form>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>E-Posta</Form.Label>
-                <Form.Control className="bg-form" type="email" placeholder="E-Postanı gir." />
-                <Form.Text className="text-muted">
-                  E-postanızı asla başkalarıyla paylaşmayacağız.
-                </Form.Text>
-              </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Şifre</Form.Label>
-                <Form.Control className="bg-form" type="password" placeholder="Şifreni gir." />
-              </Form.Group>
-              <Link to="/dashboard/category">
-                <Button className="bt-color" type="submit">
-                  Giriş<i className="fas fa-angle-double-right"></i>
-                </Button>
-              </Link>
-            </Form>
+    <div className="login-container center">
+      <div className="login-wrapper">
+        <div className="login-left">
+          <div className="login-left-top">
+            <div className="login-left-top-text">
+              <h1>TEKRARDAN HOŞGELDİN</h1>
+              <p>
+                Henüz hesabın bulunmuyorsa, <Link to="/register">Üye ol!</Link>
+              </p>
+            </div>
           </div>
+          <div className="login-left-mid">
+            <form onSubmit={onSubmitHandler} className="login-left-mid-form">
+              <label>Kullanıcı Adı</label>
+              <input type="text" placeholder="osmanabi@gmail.com" />
+              <label>Şifre</label>
+              <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" />
+              <button className="btn-lg submit-data" type="submit">
+                Giriş Yap
+              </button>
+            </form>
+            <div className="login-left-mid-reset">
+              <Link to="/reset-password">Şifreni mi unuttun?</Link>
+            </div>
+          </div>
+          <div className="login-left-bot"></div>
+        </div>
+        <div className="login-right">
+          <img src={Signin} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 export default Login
