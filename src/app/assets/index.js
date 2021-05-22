@@ -11,6 +11,7 @@ import libraryC from './libraryC.svg'
 import libraryD from './libraryD.svg'
 import Signin from './sign-in.svg'
 import Icodots from './ico-dots.svg'
+import Dashboard from './dashboard.png'
 
 export {
   libraryLanding,
@@ -25,5 +26,6 @@ export {
   libraryC,
   libraryD,
   Signin,
-  Icodots
+  Icodots,
+  Dashboard
 }
