@@ -8,7 +8,7 @@ export const loginReducer = (state = initial, action) => {
     case USER_LOGIN_SUCCESS:
       return { loading: false, userInfo: action.payload }
     case USER_LOGIN_FAIL:
-      return { loading: false }
+      return { loading: false, error: action.payload }
     default:
       return state
   }

@@ -8,11 +8,10 @@ import { userLoginActions } from './actions/creators'
 const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
   const selectedData = useSelector((data) => data.domain.info)
-  const { userInfo, loading } = selectedData
+  const { userInfo, error, loading } = selectedData
 
   useEffect(() => {
     if (userInfo) {
@@ -35,9 +34,9 @@ const Login = ({ history }) => {
               <p>
                 Henüz hesabın bulunmuyorsa, <Link to="/register">Üye ol!</Link>
               </p>
-              {message && <h1>{message}</h1>}
             </div>
           </div>
+          {error && <h3>{error}</h3>}
           <div className="login-left-mid">
             <form onSubmit={onSubmitHandler} className="login-left-mid-form">
               <label>Email</label>
