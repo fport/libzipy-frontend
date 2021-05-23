@@ -12,7 +12,9 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
       console.log(error)
     })
 
-    const isChecked = data.filter((user) => user.user_email == email)
+    const isChecked = data.filter(
+      (user) => user.user_email == email && user.user_password == password
+    )
 
     if (isChecked.length) {
       dispatch({
@@ -20,15 +22,15 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
         payload: isChecked[0]
       })
     } else {
-      throw new Error('not found user')
+      throw new Error('Email veya şifreniz geçersiz!')
     }
 
     // localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: USER_LOGIN_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: USER_LOGIN_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }

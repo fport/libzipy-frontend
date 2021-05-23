@@ -8,7 +8,7 @@ export const registerReducer = (state = initial, action) => {
     case USER_REGISTER_SUCCESS:
       return { loading: false, users: action.payload }
     case USER_REGISTER_FAIL:
-      return { loading: false }
+      return { loading: false, error: action.payload }
     default:
       return state
   }
