@@ -7,16 +7,19 @@ import { userLoginActions } from './actions/creators'
 const Login = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
   const selectedData = useSelector((data) => data.domain.info.userInfo)
 
-  console.log(selectedData)
-
   const onSubmitHandler = (e) => {
     e.preventDefault()
     dispatch(userLoginActions({ email, password }))
-    history.push('/dashboard/category')
+    if (selectedData) {
+      history.push('/dashboard/category')
+    } else {
+      setMessage('Invalid user')
+    }
   }
 
   return (
@@ -29,6 +32,7 @@ const Login = ({ history }) => {
               <p>
                 Henüz hesabın bulunmuyorsa, <Link to="/register">Üye ol!</Link>
               </p>
+              {message && <h1>{message}</h1>}
             </div>
           </div>
           <div className="login-left-mid">

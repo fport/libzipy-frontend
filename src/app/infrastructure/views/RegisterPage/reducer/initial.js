@@ -1,3 +1,3 @@
 export default {
-  userInfo: null
+  users: null
 }

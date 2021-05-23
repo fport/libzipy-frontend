@@ -8,10 +8,6 @@ export const userRegisterActions = (name, surname, phone, email, password) => as
       type: USER_REGISTER_REQUEST
     })
 
-    // const param =
-
-    // // console.log('param', param)
-
     const config = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -19,29 +15,20 @@ export const userRegisterActions = (name, surname, phone, email, password) => as
     }
 
     const { data } = await axios
-      .post(
-        'http://localhost:5000/api/user',
-        {
-          user_name: name,
-          user_surname: surname,
-          user_phonenumber: phone,
-          user_email: email,
-          user_password: password
-        },
-        config
-      )
-      .then(function (response) {
-        console.log(response)
+      .post('http://localhost:5000/api/user', {
+        user_name: name,
+        user_surname: surname,
+        user_phonenumber: phone,
+        user_email: email,
+        user_password: password
       })
       .catch(function (error) {
         console.log(error)
       })
 
-    // console.log('data =>', data)
-
     dispatch({
       type: USER_REGISTER_SUCCESS,
-      payload: { name, surname, phone, email, password }
+      payload: { data }
     })
   } catch (error) {
     dispatch({
