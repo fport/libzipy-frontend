@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
+import { userRegisterActions } from './actions/creators'
 
 const Register = ({ history }) => {
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [phone, setPhone] = useState('')
+  // const [adress, setAdress] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState(null)
+
+  const dispatch = useDispatch()
+
   const onSubmitHandler = (e) => {
     e.preventDefault()
-    history.push('/login')
+    if (password !== confirmPassword) {
+      setMessage('Password do not  match')
+    } else {
+      const castingPhone = parseInt(phone)
+      dispatch(userRegisterActions(name, surname, castingPhone, email, password))
+      history.push('/login')
+    }
   }
 
   return (
@@ -18,6 +37,7 @@ const Register = ({ history }) => {
               <p>
                 Hesabın bulunuyorsa, <Link to="/login">Giriş Yap!</Link>
               </p>
+              {message && <h1>{message}</h1>}
             </div>
           </div>
           <div className="register-left-mid">
@@ -25,38 +45,46 @@ const Register = ({ history }) => {
               <div className="register-left-mid-user center">
                 <div>
                   <label>Ad</label>
-                  <input type="text" placeholder="Osman" required />
+                  <input
+                    type="text"
+                    placeholder="Osman"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
                 </div>
                 <div>
                   <label>Soyad</label>
-                  <input type="text" placeholder="Etesam" required />
+                  <input
+                    type="text"
+                    placeholder="Etesam"
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
+                    required
+                  />
                 </div>
               </div>
-
-              {/* <div className="register-left-mid-gender">
-                <div className="register-left-mid-gender-wrapper">
-                  <label>Cinsiyet</label>
-                  <div className="radio center">
-                    <span>
-                      <input type="radio" value="Male" name="gender" /> Erkek
-                    </span>
-                    <span>
-                      <input type="radio" value="Female" name="gender" /> Kadın
-                    </span>
-                  </div>
-                </div>
-              </div> */}
 
               <label>Telefon No</label>
               <input
                 type="tel"
                 // pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
                 placeholder="553-456-67-89"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 required
               />
 
-              <label>Adres</label>
-              <textarea type="text" rows="3" cols="40" required wrap="hard" />
+              {/* <label>Adres</label>
+              <textarea
+                type="text"
+                wrap="hard"
+                rows="3"
+                cols="40"
+                value={adress}
+                onChange={(e) => setAdress(e.target.value)}
+                required
+              /> */}
 
               <div className="register-left-mid-user center">
                 <div>
@@ -64,6 +92,8 @@ const Register = ({ history }) => {
                   <input
                     type="password"
                     placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                 </div>
@@ -72,13 +102,21 @@ const Register = ({ history }) => {
                   <input
                     type="password"
                     placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                   />
                 </div>
               </div>
 
               <label>Email</label>
-              <input type="email" placeholder="osmanabi@gmail.com" required />
+              <input
+                type="email"
+                placeholder="osmanabi@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
               <button className="btn-lg submit-data" type="submit">
                 Üye Ol

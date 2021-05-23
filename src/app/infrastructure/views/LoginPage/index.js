@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLoginActions } from './actions/creators'
 
 const Login = ({ history }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [message, setMessage] = useState(null)
+
   const dispatch = useDispatch()
   const selectedData = useSelector((data) => data.domain.info.userInfo)
-  const name = 'furkan'
-
-  console.log(selectedData)
 
   const onSubmitHandler = (e) => {
     e.preventDefault()
-    dispatch(userLoginActions({ name }))
-    history.push('/dashboard/category')
+    dispatch(userLoginActions({ email, password }))
+    if (selectedData) {
+      history.push('/dashboard/category')
+    } else {
+      setMessage('Invalid user')
+    }
   }
 
   return (
@@ -27,14 +32,25 @@ const Login = ({ history }) => {
               <p>
                 Henüz hesabın bulunmuyorsa, <Link to="/register">Üye ol!</Link>
               </p>
+              {message && <h1>{message}</h1>}
             </div>
           </div>
           <div className="login-left-mid">
             <form onSubmit={onSubmitHandler} className="login-left-mid-form">
               <label>Email</label>
-              <input type="text" placeholder="osmanabi@gmail.com" />
+              <input
+                type="text"
+                placeholder="osmanabi@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
               <label>Şifre</label>
-              <input type="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;" />
+              <input
+                type="password"
+                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <button className="btn-lg submit-data" type="submit">
                 Giriş Yap
               </button>
