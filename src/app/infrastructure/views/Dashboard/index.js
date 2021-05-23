@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Sidebar from '../../../infrastructure/components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
 import { Author, Books, Category, Library, Member, MemeberBorrow } from '../index'
-
-const Dashboard = () => {
+import { useSelector } from 'react-redux'
+/* eslint-disable */
+const Dashboard = ({ history }) => {
   const url = useLocation()
   const tab = url.pathname.split('/')[2] ? url.pathname.split('/')[2] : null
   const activeTab = tab ? tab.charAt(0).toUpperCase() + tab.slice(1) : null
+
+  const userInfo = useSelector((data) => data.domain.info.userInfo)
+
+  useEffect(() => {
+    if (!userInfo) {
+      history.push('/login')
+    }
+  }, [userInfo])
 
   return (
     <div style={{ display: 'flex' }}>

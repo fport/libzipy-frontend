@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable */
+import React, { useState, useEffect } from 'react'
 import { Signin } from '../../../assets'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,16 +11,18 @@ const Login = ({ history }) => {
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
-  const selectedData = useSelector((data) => data.domain.info.userInfo)
+  const selectedData = useSelector((data) => data.domain.info)
+  const { userInfo, loading } = selectedData
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push('/dashboard/category')
+    }
+  }, [userInfo])
 
   const onSubmitHandler = (e) => {
     e.preventDefault()
     dispatch(userLoginActions({ email, password }))
-    if (selectedData) {
-      history.push('/dashboard/category')
-    } else {
-      setMessage('Invalid user')
-    }
   }
 
   return (
