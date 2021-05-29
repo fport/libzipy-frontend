@@ -8,9 +8,11 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
       type: USER_LOGIN_REQUEST
     })
 
-    const { data } = await axios.get('http://localhost:5000/api/user').catch(function (error) {
-      console.log(error)
-    })
+    const { data } = await axios
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/user`)
+      .catch(function (error) {
+        console.log(error)
+      })
 
     const isChecked = data.filter(
       (user) => user.user_email == email && user.user_password == password

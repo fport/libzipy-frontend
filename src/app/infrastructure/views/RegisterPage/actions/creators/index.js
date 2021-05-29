@@ -15,7 +15,7 @@ export const userRegisterActions = (name, surname, phone, email, password) => as
     }
 
     const { data } = await axios
-      .post('http://localhost:5000/api/user', {
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/user`, {
         user_name: name,
         user_surname: surname,
         user_phonenumber: phone,
