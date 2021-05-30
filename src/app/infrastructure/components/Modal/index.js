@@ -3,7 +3,7 @@ import React from 'react'
 const Modal = (props) => {
   return (
     <div className="modal" onClick={props.closeModal}>
-      <div className="modal-content">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h4 className="modal-title">{props.title}</h4>
         </div>
