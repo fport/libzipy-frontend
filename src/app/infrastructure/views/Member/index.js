@@ -1,8 +1,7 @@
+/* eslint-disable */
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userListActions } from './actions/creators'
-
-// import { Table } from 'react-bootstrap'
 
 const Member = () => {
   const dispatch = useDispatch()
@@ -15,9 +14,21 @@ const Member = () => {
 
   return (
     <div>
-      {userList.users.map((user, id) => (
-        <div key={id}>{user.user_name}</div>
-      ))}
+      <table>
+        <tbody>
+          {userList.users.map((user, id) => (
+            <tr key={id}>
+              <td>{user.user_name}</td>
+              <td>{user.user_surname}</td>
+              <td>{user.user_phonenumber}</td>
+              <td>{user.user_email}</td>
+              <td className="opration">
+                <button>Open Modal</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
