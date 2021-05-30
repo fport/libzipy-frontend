@@ -32,6 +32,13 @@ const Sidebar = ({ history }) => {
         </div>
 
         <div className="nav-item-wrapper">
+          <div className="nav-item">
+            <Link to="/dashboard/category">
+              <i className="fas fa-object-ungroup kolor"></i>
+              <span className="link-text">Kategoriler</span>
+            </Link>
+          </div>
+
           {selectedData.user_isadmin ? (
             <div className="nav-item">
               <Link to="/dashboard/member">
@@ -40,12 +47,6 @@ const Sidebar = ({ history }) => {
               </Link>
             </div>
           ) : null}
-          <div className="nav-item">
-            <Link to="/dashboard/category">
-              <i className="fas fa-object-ungroup kolor"></i>
-              <span className="link-text">Kategoriler</span>
-            </Link>
-          </div>
 
           <div className="nav-item">
             <Link to="/dashboard/books">

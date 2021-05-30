@@ -2,7 +2,7 @@ import React from 'react'
 
 const Modal = (props) => {
   return (
-    <div className="modal">
+    <div className="modal" onClick={props.closeModal}>
       <div className="modal-content">
         <div className="modal-header">
           <h4 className="modal-title">{props.title}</h4>
@@ -38,5 +38,12 @@ export default Modal
       <div> icerik </div>
       </Modal>
     )
+
+
+     {open ? (
+                  <Modal closeModal={() => closeModal()}>
+                    <p>{user.user_email}</p>
+                  </Modal>
+                ) : null}
 
 */
