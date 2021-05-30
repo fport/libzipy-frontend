@@ -1,9 +1,11 @@
 /* eslint-disable */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userListActions } from './actions/creators'
+import { Modal } from '../../components'
 
 const Member = () => {
+  const [open, setOpen] = useState(false)
   const dispatch = useDispatch()
 
   const userList = useSelector((state) => state.ui.member.memberReducer)
@@ -11,6 +13,14 @@ const Member = () => {
   useEffect(() => {
     dispatch(userListActions())
   }, [dispatch])
+
+  const openModel = () => {
+    setOpen(true)
+  }
+
+  const closeModal = () => {
+    setOpen(false)
+  }
 
   return (
     <div>
@@ -23,7 +33,8 @@ const Member = () => {
               <td>{user.user_phonenumber}</td>
               <td>{user.user_email}</td>
               <td className="opration">
-                <button>Open Modal</button>
+                {open ? <Modal closeModal={() => closeModal()} /> : null}
+                <button onClick={openModel}>Open Modal</button>
               </td>
             </tr>
           ))}
