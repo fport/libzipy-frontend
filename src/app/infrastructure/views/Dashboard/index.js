@@ -13,14 +13,14 @@ const Dashboard = ({ history }) => {
   const userInfo = useSelector((data) => data.domain.info.userInfo)
 
   useEffect(() => {
-    if (!userInfo) {
+    if (!userInfo || !userInfo.user_name) {
       history.push('/login')
     }
   }, [userInfo])
 
   return (
     <div style={{ display: 'flex' }}>
-      <Sidebar />
+      <Sidebar history={history} />
       <div style={{ marginLeft: '324px', width: '100%', padding: '1rem', marginBottom: '0' }}>
         <Breadcrumb>
           <Breadcrumb.Item href="/dashboard">Dashboard</Breadcrumb.Item>
@@ -28,22 +28,22 @@ const Dashboard = ({ history }) => {
         </Breadcrumb>
         <Switch>
           <Route path="/dashboard/member-borrow">
-            <MemeberBorrow />
+            <MemeberBorrow history={history} />
           </Route>
           <Route path="/dashboard/category">
-            <Category />
+            <Category history={history} />
           </Route>
           <Route path="/dashboard/library">
-            <Library />
+            <Library history={history} />
           </Route>
           <Route path="/dashboard/books">
-            <Books />
+            <Books history={history} />
           </Route>
           <Route path="/dashboard/member">
-            <Member />
+            <Member history={history} />
           </Route>
           <Route path="/dashboard/author">
-            <Author />
+            <Author history={history} />
           </Route>
         </Switch>
       </div>

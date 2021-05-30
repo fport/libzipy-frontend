@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+/* eslint-disable */
+import React, { useState, useEffect } from 'react'
 import { Card, Button, Tab, Tabs, InputGroup, FormControl } from 'react-bootstrap'
 import {
   populerKategorisi,
@@ -7,6 +8,7 @@ import {
   klasikKategori
 } from '../../../assets'
 import { Drawer } from '../../../infrastructure/components'
+import { useSelector } from 'react-redux'
 
 const kategoriler = [
   {
@@ -47,10 +49,13 @@ const kategoriler = [
   }
 ]
 
-const Category = () => {
+const Category = ({ history }) => {
   const [isOpenAdd, setIsOpenAdd] = useState(false)
   const [isOpenDelete, setIsOpenDelete] = useState(false)
   const [isOpenUpdate, setIsOpenUpdate] = useState(false)
+
+  const selectedData = useSelector((data) => data.domain.info)
+  const { userInfo } = selectedData
 
   const openAdd = () => {
     setIsOpenAdd(!isOpenAdd)
@@ -67,6 +72,10 @@ const Category = () => {
     setIsOpenDelete(false)
     setIsOpenUpdate(!isOpenUpdate)
   }
+
+  // useEffect(() => {
+  //   }
+  // }, [])
 
   return (
     <div>

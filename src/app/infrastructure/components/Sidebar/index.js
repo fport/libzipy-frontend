@@ -1,18 +1,34 @@
+/* eslint-disable */
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../../views/LoginPage/actions/creators'
 
-const Sidebar = () => {
+const Sidebar = ({ history }) => {
+  const selectedData = useSelector((data) => data.domain.info.userInfo)
+  const dispatch = useDispatch()
+
+  const onCloseHandle = () => {
+    console.log('tiklandi')
+    // dispatch(logout({}))
+    // history.push('/')
+  }
+
   return (
     <div className="sidebar-container">
       <div className="sidbar-wrapper">
         <div className="login-user">
           <div className="login-profile">
             <i className="fas fa-user-circle osman" />
-            <h6 className="login-text">Üye</h6>
+            <h6 className="login-text">
+              {selectedData ? (selectedData.user_isadmin == 1 ? 'Admin' : 'Üye') : ''}
+            </h6>
           </div>
           <div className="login-info">
-            <h3 className="login-text"> Osman Abi</h3>
-            <h6 className="login-text">osmanabi@gmail.com</h6>
+            <h3 className="login-text">
+              {selectedData ? `${selectedData.user_name} ${selectedData.user_surname}` : ''}
+            </h3>
+            <h6 className="login-text">{selectedData ? selectedData.user_email : ''}</h6>
           </div>
         </div>
 

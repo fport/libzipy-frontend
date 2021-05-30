@@ -14,7 +14,7 @@ const Login = ({ history }) => {
   const { userInfo, error, loading } = selectedData
 
   useEffect(() => {
-    if (userInfo) {
+    if (userInfo != {} && userInfo.user_name) {
       history.push('/dashboard/category')
     }
   }, [userInfo])
@@ -43,14 +43,12 @@ const Login = ({ history }) => {
               <input
                 type="text"
                 placeholder="osmanabi@gmail.com"
-                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <label>Şifre</label>
               <input
                 type="password"
                 placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
-                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button className="btn-lg submit-data" type="submit">

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios'
-import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS } from '../types'
+import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGOUT } from '../types'
 
 export const userLoginActions = ({ email, password }) => async (dispatch) => {
   try {
@@ -27,7 +27,7 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
       throw new Error('Email veya şifreniz geçersiz!')
     }
 
-    // localStorage.setItem('userInfo', JSON.stringify(data))
+    localStorage.setItem('userInfo', JSON.stringify(isChecked[0]))
   } catch (error) {
     dispatch({
       type: USER_LOGIN_FAIL,
@@ -35,4 +35,10 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
         error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
+}
+
+//LOGOUT
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('userInfo')
+  dispatch({ type: USER_LOGOUT })
 }

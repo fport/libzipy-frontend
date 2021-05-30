@@ -4,7 +4,6 @@ import { Table } from 'react-bootstrap'
 const Member = () => {
   return (
     <div>
-      {' '}
       <div>
         <div>
           <Table striped bordered hover>
