@@ -14,7 +14,7 @@ const Login = ({ history }) => {
   const { userInfo, error, loading } = selectedData
 
   useEffect(() => {
-    if (userInfo != {} && userInfo.user_name) {
+    if (userInfo && userInfo != {} && userInfo.user_name) {
       history.push('/dashboard/category')
     }
   }, [userInfo])

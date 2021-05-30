@@ -10,8 +10,8 @@ const Sidebar = ({ history }) => {
 
   const onCloseHandle = () => {
     console.log('tiklandi')
-    // dispatch(logout({}))
-    // history.push('/')
+    dispatch(logout({}))
+    history.push('/')
   }
 
   return (
@@ -72,9 +72,9 @@ const Sidebar = ({ history }) => {
         </div>
         <div className="nav-close">
           <div className="nav-close-content">
-            <Link to="/">
-              <span className="link-text">Çıkış</span>
-            </Link>
+            <button className="nav-close-content-button" onClick={onCloseHandle}>
+              Cikis Yap
+            </button>
           </div>
         </div>
       </div>
