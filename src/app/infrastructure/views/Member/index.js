@@ -1,61 +1,23 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { userListActions } from './actions/creators'
+
+// import { Table } from 'react-bootstrap'
 
 const Member = () => {
+  const dispatch = useDispatch()
+
+  const userList = useSelector((state) => state.ui.member.memberReducer)
+
+  useEffect(() => {
+    dispatch(userListActions())
+  }, [dispatch])
+
   return (
     <div>
-      <div>
-        <div>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>
-                  <i className="fas fa-angle-double-down" />
-                </th>
-                <th>Üyeler</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>
-                  <i className="fas fa-mouse" />
-                </td>
-                <td>Jacob</td>
-              </tr>
-            </tbody>
-          </Table>
-        </div>
-      </div>
+      {userList.users.map((user, id) => (
+        <div key={id}>{user.user_name}</div>
+      ))}
     </div>
   )
 }

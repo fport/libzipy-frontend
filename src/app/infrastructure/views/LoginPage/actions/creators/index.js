@@ -39,6 +39,6 @@ export const userLoginActions = ({ email, password }) => async (dispatch) => {
 
 //LOGOUT
 export const logout = () => (dispatch) => {
-  localStorage.removeItem('userInfo')
+  localStorage.setItem('userInfo', '')
   dispatch({ type: USER_LOGOUT })
 }

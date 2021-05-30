@@ -1,3 +1,4 @@
+import axios from 'axios'
 import {
   USER_ALL_LIST_REQUEST,
   USER_ALL_LIST_SUCCESS,
@@ -17,30 +18,29 @@ export const userListActions = () => async (dispatch) => {
       type: USER_ALL_LIST_REQUEST
     })
 
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-
-    // const { data } = await axios.post('/api/users/login', { email, password }, config)
+    const { data } = await axios
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/user`)
+      .catch(function (error) {
+        console.log(error)
+      })
 
     dispatch({
-      type: USER_ALL_LIST_SUCCESS
+      type: USER_ALL_LIST_SUCCESS,
+      payload: data
     })
 
-    // localStorage.setItem('userInfo', JSON.stringify(data))
+    localStorage.setItem('users', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: USER_ALL_LIST_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: USER_ALL_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }
 
 // @desc user update actions
-export const userUpdateActions = (_id) => async (dispatch) => {
+export const userUpdateActions = () => async (dispatch) => {
   try {
     dispatch({
       type: USER_UPDATE_REQUEST
@@ -70,7 +70,7 @@ export const userUpdateActions = (_id) => async (dispatch) => {
 }
 
 // @desc user delete actions
-export const userDeleteActions = (_id) => async (dispatch) => {
+export const userDeleteActions = () => async (dispatch) => {
   try {
     dispatch({
       type: USER_DELETE_REQUEST

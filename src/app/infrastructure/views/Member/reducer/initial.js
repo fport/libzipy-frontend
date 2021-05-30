@@ -1,3 +1,7 @@
+const usersFromStorage = localStorage.getItem('users')
+  ? JSON.parse(localStorage.getItem('users'))
+  : {}
+
 export default {
-  usersList: []
+  users: usersFromStorage
 }
