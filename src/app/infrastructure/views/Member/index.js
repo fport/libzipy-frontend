@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 const Member = () => {
   const dispatch = useDispatch()
 
-  const userList = useSelector((state) => state.ui.member.memberReducer)
+  const userLists = useSelector((state) => state.ui.member.memberReducer)
+  const { users } = userLists
 
   useEffect(() => {
     dispatch(userListActions())
@@ -17,7 +18,7 @@ const Member = () => {
     <div>
       <table>
         <tbody>
-          {userList.users.map((user, id) => (
+          {users.map((user, id) => (
             <tr key={id}>
               <td>{user.user_name}</td>
               <td>{user.user_surname}</td>
