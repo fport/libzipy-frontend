@@ -26,6 +26,8 @@
 
             .login-text {
                 color: $white-color;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .login-profile {
@@ -47,6 +49,8 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: left;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
             }
         }

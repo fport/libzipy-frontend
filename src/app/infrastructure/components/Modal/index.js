@@ -9,7 +9,9 @@ const Modal = (props) => {
         </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-          <button onClick={props.closeModal}>close</button>
+          <button className="btn-sm" onClick={props.closeModal}>
+            Kapat
+          </button>
         </div>
       </div>
     </div>

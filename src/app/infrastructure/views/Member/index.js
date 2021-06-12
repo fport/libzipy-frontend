@@ -4,15 +4,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userListActions } from './actions/creators'
 import { Link } from 'react-router-dom'
 
-const Member = () => {
+const Member = ({ history }) => {
   const dispatch = useDispatch()
 
   const userLists = useSelector((state) => state.ui.member.memberReducer)
   const { users } = userLists
 
+  const onClickHandle = (id) => {
+    history.push(`member/${id}`)
+  }
+
   useEffect(() => {
     dispatch(userListActions())
-  }, [dispatch])
+  }, [users])
 
   return (
     <div>
@@ -25,9 +29,7 @@ const Member = () => {
               <td>{user.user_phonenumber}</td>
               <td>{user.user_email}</td>
               <td className="opration">
-                <Link to={`member/${user.user_id}`}>
-                  <button>Detaya Git</button>
-                </Link>
+                <button onClick={() => onClickHandle(user.user_id)}>Detaya Git</button>
               </td>
             </tr>
           ))}

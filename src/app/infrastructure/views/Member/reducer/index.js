@@ -5,9 +5,9 @@ import {
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
-  USER_DELETE_REQUEST,
-  USER_DELETE_SUCCESS,
-  USER_DELETE_FAIL
+  MEMBER_REMOVE_REQUEST,
+  MEMBER_REMOVE_SUCCESS,
+  MEMBER_REMOVE_FAIL
 } from '../actions/types'
 import initial from './initial'
 
@@ -26,11 +26,11 @@ export const memberReducer = (state = initial, action) => {
       return { ...state, loading: false, users: action.payload }
     case USER_UPDATE_FAIL:
       return { loading: false }
-    case USER_DELETE_REQUEST:
-      return { loading: true }
-    case USER_DELETE_SUCCESS:
-      return { ...state, loading: false, users: action.payload }
-    case USER_DELETE_FAIL:
+    case MEMBER_REMOVE_REQUEST:
+      return { ...state, loading: true }
+    case MEMBER_REMOVE_SUCCESS:
+      return { ...state, loading: false, users: state.users.filter((x) => x.id !== action.payload) }
+    case MEMBER_REMOVE_FAIL:
       return { loading: false }
     default:
       return state

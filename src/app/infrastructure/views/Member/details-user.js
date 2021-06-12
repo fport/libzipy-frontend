@@ -9,7 +9,7 @@ const DetailUser = (props) => {
         </div>
         <div className="modal-body">{props.children}</div>
         <div className="modal-footer">
-          <button onClick={props.onClose}>close</button>
+          <button onClick={props.onClose}>Kapat</button>
         </div>
       </div>
     </div>
