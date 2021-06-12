@@ -17,10 +17,6 @@ const MemberDetails = ({ history }) => {
     update: false
   })
 
-  // const [updateMember, setUpdateMember] = setState({
-
-  // })
-
   const member = useSelector((state) => state.ui.member.memberDetailsReducer)
   const { memberDetails, loading } = member
 
@@ -38,8 +34,7 @@ const MemberDetails = ({ history }) => {
 
   const deleteHandle = () => {
     dispatch(deleteMemberActions({ id }))
-
-    history.push('/dashboard/member/')
+    history.push('/dashboard/member')
   }
 
   useEffect(() => {
