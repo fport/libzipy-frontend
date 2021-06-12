@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMemberDetailsActions } from './actions/creators'
-import { deleteMemberActions } from '../Member/actions/creators'
+import { deleteMemberActions, userUpdateActions } from '../Member/actions/creators'
 import { useParams } from 'react-router-dom'
 import { Modal } from '../../components'
 import InfoLabel from './info-label'
@@ -12,6 +12,15 @@ const MemberDetails = ({ history }) => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
+
+  // for form
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isAdmin, setIsAdmin] = useState('')
+
   const [s, setState] = useState({
     del: false,
     update: false
@@ -19,7 +28,7 @@ const MemberDetails = ({ history }) => {
 
   const member = useSelector((state) => state.ui.member.memberDetailsReducer)
   const { memberDetails, loading } = member
-
+  console.log('memberDetails', memberDetails)
   const openModel = () => {
     setOpen(true)
   }
@@ -37,9 +46,24 @@ const MemberDetails = ({ history }) => {
     history.push('/dashboard/member')
   }
 
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(userUpdateActions(id, name, surname, phone, email, password, isAdmin))
+    history.push(`/dashboard/member/${id}`)
+  }
+
   useEffect(() => {
-    dispatch(getMemberDetailsActions({ id }))
-  }, [dispatch])
+    if (!memberDetails || !memberDetails.user_name) {
+      dispatch(getMemberDetailsActions({ id }))
+    } else {
+      setName(memberDetails.user_name)
+      setSurname(memberDetails.user_surname)
+      setPhone(memberDetails.user_phonenumber)
+      setEmail(memberDetails.user_email)
+      setPassword(memberDetails.user_password)
+      setIsAdmin(memberDetails.user_isadmin)
+    }
+  }, [dispatch, memberDetails])
 
   return (
     <>
@@ -108,8 +132,19 @@ const MemberDetails = ({ history }) => {
             ) : null}
             {s.update ? (
               <Modal closeModal={() => updateMemeber()}>
-                <h4>Isim Soyisim </h4>
-                <input value={memberDetails.user_name} />
+                <form onSubmit={submitHandler}>
+                  <h4>Isim</h4>
+                  <input value={name} onChange={(e) => setName(e.target.value)} />
+                  <h4>Soyisim </h4>
+                  <input value={surname} onChange={(e) => setSurname(e.target.value)} />
+                  <h4>Telefon Numarasi</h4>
+                  <input value={email} onChange={(e) => setPhone(e.target.value)} />
+                  <h4>Sifre</h4>
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} />
+                  <h4>Admin Status</h4>
+                  <input value={isAdmin} onChange={(e) => setIsAdmin(e.target.value)} />
+                  <button type="submit">Guncelle</button>
+                </form>
               </Modal>
             ) : null}
             <div className="details-footer">

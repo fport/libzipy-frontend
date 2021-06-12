@@ -40,31 +40,36 @@ export const userListActions = () => async (dispatch) => {
 }
 
 // @desc user update actions
-export const userUpdateActions = () => async (dispatch) => {
+export const userUpdateActions = (id, name, surname, phone, email, password, isAdmin) => async (
+  dispatch
+) => {
   try {
     dispatch({
       type: USER_UPDATE_REQUEST
     })
-
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-
-    // const { data } = await axios.post('/api/users/login', { email, password }, config)
+    console.log('name', id)
+    await axios
+      .put(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/user/${id}`, {
+        user_name: name,
+        user_surname: surname,
+        user_phonenumber: phone,
+        user_email: email,
+        user_password: password,
+        user_isadmin: isAdmin,
+        id
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
 
     dispatch({
       type: USER_UPDATE_SUCCESS
     })
-    // payload: data
-
-    // localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: USER_UPDATE_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: USER_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }

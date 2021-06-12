@@ -16,7 +16,7 @@ const Member = ({ history }) => {
 
   useEffect(() => {
     dispatch(userListActions())
-  }, [users])
+  }, [dispatch])
 
   return (
     <div>
