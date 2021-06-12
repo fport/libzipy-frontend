@@ -40,7 +40,9 @@ const Member = ({ history }) => {
               <td>{user.user_phonenumber}</td>
               <td>{user.user_email}</td>
               <td className="opration">
-                <button onClick={() => onClickHandle(user.user_id)}>Detaya Git</button>
+                <button className="btn-sm" onClick={() => onClickHandle(user.user_id)}>
+                  Detaya Git
+                </button>
               </td>
             </tr>
           ))}
