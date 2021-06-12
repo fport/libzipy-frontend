@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getMemberDetailsActions } from './actions/creators'
+import { deleteMemberActions } from '../Member/actions/creators'
 import { useParams } from 'react-router-dom'
 import { Modal } from '../../components'
 import InfoLabel from './info-label'
 import { Table } from 'react-bootstrap'
 
-const MemberDetails = () => {
+const MemberDetails = ({ history }) => {
   const { id } = useParams()
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
@@ -33,6 +34,12 @@ const MemberDetails = () => {
 
   const updateMemeber = () => {
     setState({ ...s, update: !s.update })
+  }
+
+  const deleteHandle = () => {
+    dispatch(deleteMemberActions({ id }))
+
+    history.push('/dashboard/member/')
   }
 
   useEffect(() => {
@@ -98,8 +105,10 @@ const MemberDetails = () => {
             </div>
             {s.del ? (
               <Modal closeModal={() => deleteMemeber()}>
-                <p>sil</p>
-                <p>vazgec</p>
+                <p onClick={() => deleteHandle()}>sil</p>
+                <p className="delete-option" onClick={() => deleteMemeber()}>
+                  vazgec
+                </p>
               </Modal>
             ) : null}
             {s.update ? (
