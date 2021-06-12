@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userListActions } from './actions/creators'
-import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 const Member = ({ history }) => {
   const dispatch = useDispatch()
@@ -20,7 +20,18 @@ const Member = ({ history }) => {
 
   return (
     <div>
-      <table>
+      <Table>
+        <thead>
+          <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Telefon Numarası</th>
+            <th>Email</th>
+            <th>
+              <i className="fas fa-angle-double-down" />
+            </th>
+          </tr>
+        </thead>
         <tbody>
           {users.map((user, id) => (
             <tr key={id}>
@@ -34,7 +45,7 @@ const Member = ({ history }) => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }
