@@ -49,7 +49,8 @@ const MemberDetails = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(userUpdateActions(id, name, surname, phone, email, password, isAdmin))
-    history.push(`/dashboard/member/${id}`)
+    setState({ ...s, update: !s.update })
+    window.location.reload()
   }
 
   useEffect(() => {
@@ -63,7 +64,7 @@ const MemberDetails = ({ history }) => {
       setPassword(memberDetails.user_password)
       setIsAdmin(memberDetails.user_isadmin)
     }
-  }, [dispatch, memberDetails])
+  }, [dispatch, memberDetails, loading])
 
   return (
     <>
@@ -138,7 +139,9 @@ const MemberDetails = ({ history }) => {
                   <h4>Soyisim </h4>
                   <input value={surname} onChange={(e) => setSurname(e.target.value)} />
                   <h4>Telefon Numarasi</h4>
-                  <input value={email} onChange={(e) => setPhone(e.target.value)} />
+                  <input value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  <h4>Email</h4>
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} />
                   <h4>Sifre</h4>
                   <input value={password} onChange={(e) => setPassword(e.target.value)} />
                   <h4>Admin Status</h4>

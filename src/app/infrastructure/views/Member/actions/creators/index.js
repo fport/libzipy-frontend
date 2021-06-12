@@ -47,7 +47,6 @@ export const userUpdateActions = (id, name, surname, phone, email, password, isA
     dispatch({
       type: USER_UPDATE_REQUEST
     })
-    console.log('name', id)
     await axios
       .put(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/user/${id}`, {
         user_name: name,
@@ -61,7 +60,6 @@ export const userUpdateActions = (id, name, surname, phone, email, password, isA
       .catch(function (error) {
         console.log(error)
       })
-
     dispatch({
       type: USER_UPDATE_SUCCESS
     })
