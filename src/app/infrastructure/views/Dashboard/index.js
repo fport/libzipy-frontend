@@ -2,7 +2,16 @@ import React, { useEffect } from 'react'
 import Sidebar from '../../../infrastructure/components/Sidebar'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'react-bootstrap'
-import { Author, Books, Category, Library, Member, MemeberBorrow, MemberDetails } from '../index'
+import {
+  Author,
+  Books,
+  Category,
+  Library,
+  Member,
+  MemeberBorrow,
+  MemberDetails,
+  LibraryDetails
+} from '../index'
 import { useSelector } from 'react-redux'
 /* eslint-disable */
 const Dashboard = ({ history }) => {
@@ -35,6 +44,9 @@ const Dashboard = ({ history }) => {
           </Route>
           <Route path="/dashboard/member/:id">
             <MemberDetails history={history} />
+          </Route>
+          <Route path="/dashboard/library/:id">
+            <LibraryDetails history={history} />
           </Route>
           <Route path="/dashboard/library">
             <Library history={history} />

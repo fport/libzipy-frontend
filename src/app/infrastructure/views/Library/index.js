@@ -12,8 +12,7 @@ const Library = ({ history }) => {
   const { libraryList, loading } = library
 
   const onClickHandle = (id) => {
-    console.log(id)
-    // history.push(`member/${id}`)
+    history.push(`library/${id}`)
   }
 
   useEffect(() => {
