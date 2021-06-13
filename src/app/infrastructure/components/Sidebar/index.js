@@ -33,7 +33,7 @@ const Sidebar = ({ history }) => {
 
         <div className="nav-item-wrapper">
           <div className="nav-item">
-            <Link to="/dashboard/category">
+            <Link to="/dashboard/library">
               <i className="fas fa-object-ungroup kolor"></i>
               <span className="link-text">Kütüphaneler</span>
             </Link>
