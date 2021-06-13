@@ -10,7 +10,8 @@ import {
   Member,
   MemeberBorrow,
   MemberDetails,
-  LibraryDetails
+  LibraryDetails,
+  BooksDetails
 } from '../index'
 import { useSelector } from 'react-redux'
 /* eslint-disable */
@@ -45,14 +46,17 @@ const Dashboard = ({ history }) => {
           <Route path="/dashboard/member/:id">
             <MemberDetails history={history} />
           </Route>
+          <Route path="/dashboard/books/:id">
+            <BooksDetails history={history} />
+          </Route>
+          <Route path="/dashboard/books">
+            <Books history={history} />
+          </Route>
           <Route path="/dashboard/library/:id">
             <LibraryDetails history={history} />
           </Route>
           <Route path="/dashboard/library">
             <Library history={history} />
-          </Route>
-          <Route path="/dashboard/books">
-            <Books history={history} />
           </Route>
           <Route path="/dashboard/member">
             <Member history={history} />
