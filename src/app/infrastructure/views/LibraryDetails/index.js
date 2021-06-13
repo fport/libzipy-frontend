@@ -11,46 +11,37 @@ const LibraryDetails = ({ history }) => {
   const { id } = useParams()
   const dispatch = useDispatch()
 
+  // for dynamic library info
   const library = useSelector((state) => state.ui.library.libraryListReducer)
-  const { libraryList, loading } = library
+  const { libraryList } = library
   const lib = libraryList.find((e) => e.library_id == id)
 
+  const librarys = useSelector((state) => state.ui.library.libraryDetailsReducer)
+  const { libraryDetails, loading } = librarys
+
   const onClickHandle = (id) => {
-    console.log(id)
-    // history.push(`member/${id}`)
+    history.push(`books/${id}`)
   }
 
-  // useEffect(() => {
-  //   if (!libraryDetails) {
-  //     dispatch(getLibraryDetailsActions({ id }))
-  //   } else {
-  //     // setName(memberDetails.user_name)
-  //     // setSurname(memberDetails.user_surname)
-  //     // setPhone(memberDetails.user_phonenumber)
-  //     // setEmail(memberDetails.user_email)
-  //     // setPassword(memberDetails.user_password)
-  //     // setIsAdmin(memberDetails.user_isadmin)
-  //   }
-  // }, [dispatch, memberDetails, loading])
   useEffect(() => {
     dispatch(getLibraryDetailsActions({ id }))
   }, [dispatch])
 
   return (
-    <div className="library-container">
-      <div className="library-container-content">
+    <div className="library-details-container">
+      <div className="library-details-container-content">
         <div className="info">
           <div className="info-library-name">
-            <h2>Bursa Kutuphanesi</h2>
+            <h2>{lib.library_name}</h2>
           </div>
           <div className="info-library-details">
             <div className="image-container">
               <img src={libraryA} style={{ width: '200px', height: 'auto' }} />
-              <span className="centered">{library.library_name}</span>
+              <span className="centered">{lib.library_name}</span>
             </div>
-            <div>
-              <span>adres</span>
-            </div>
+            <span className="adress">
+              <h5>Adress : </h5> {lib.library_adress}
+            </span>
           </div>
         </div>
         <div className="details">
@@ -68,13 +59,20 @@ const LibraryDetails = ({ history }) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+              {(libraryDetails &&
+                libraryDetails.map((lib, id) => (
+                  <tr key={id}>
+                    <td>{lib.book_name || '-'}</td>
+                    <td>{lib.book_number_of_pages || '-'}</td>
+                    <td>{lib.book_date_of_issue || '-'}</td>
+                    <td>{lib.book_place_of_publication || '-'}</td>
+                    <td className="opration">
+                      <button className="btn-sm" onClick={() => onClickHandle(lib.ISBN_id)}>
+                        Detaya Git
+                      </button>
+                    </td>
+                  </tr>
+                ))) || <span>loading</span>}
             </tbody>
           </Table>
         </div>

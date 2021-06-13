@@ -20,7 +20,7 @@ export const getLibraryDetailsActions = ({ id }) => async (dispatch) => {
 
     dispatch({
       type: LIBRARY_DETAIL_LIST_SUCCESS,
-      payload: data[0]
+      payload: data
     })
   } catch (error) {
     dispatch({
