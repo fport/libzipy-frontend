@@ -61,7 +61,7 @@ const Sidebar = ({ history }) => {
               <span className="link-text">Yazarlar</span>
             </Link>
           </div>
-          {!selectedData.user_isadmin == 1 ? (
+          {selectedData.user_isadmin == 0 ? (
             <div className="nav-item">
               <Link to="/dashboard/member-borrow">
                 <i className="fas fa-bacon kolor"></i>
