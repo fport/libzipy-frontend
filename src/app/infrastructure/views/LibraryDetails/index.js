@@ -19,8 +19,6 @@ const LibraryDetails = ({ history }) => {
   const librarys = useSelector((state) => state.ui.library.libraryDetailsReducer)
   const { libraryDetails, loading } = librarys
 
-  console.log(libraryDetails)
-
   const onClickHandle = (id) => {
     history.push(`books/${id}`)
   }
