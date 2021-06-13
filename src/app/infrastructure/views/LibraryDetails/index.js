@@ -20,7 +20,7 @@ const LibraryDetails = ({ history }) => {
   const { libraryDetails, loading } = librarys
 
   const onClickHandle = (id) => {
-    history.push(`books/${id}`)
+    history.push(`/dashboard/books/${id}`)
   }
 
   useEffect(() => {

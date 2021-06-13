@@ -1,0 +1,36 @@
+.books-details-container {
+    &-content {
+        padding: 10px;
+        .info {
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+
+            .info-label {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 1rem 1rem 1rem 0;
+                width: 30%;
+
+                &-title {
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: gray;
+                    white-space: nowrap;
+                }
+
+                &-value {
+                    display: flex;
+                    padding-top: 2px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #201c1c;
+                }
+            }
+        }
+    }
+}
