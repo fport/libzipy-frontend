@@ -1,3 +1,5 @@
+/* eslint-disable */
+import axios from 'axios'
 import {
   LIBRARY_ALL_LIST_REQUEST,
   LIBRARY_ALL_LIST_SUCCESS,
@@ -17,24 +19,23 @@ export const libraryListActions = () => async (dispatch) => {
       type: LIBRARY_ALL_LIST_REQUEST
     })
 
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-
-    // const { data } = await axios.post('/api/users/login', { email, password }, config)
+    const { data } = await axios
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library`)
+      .catch(function (error) {
+        console.log(error)
+      })
 
     dispatch({
-      type: LIBRARY_ALL_LIST_SUCCESS
+      type: LIBRARY_ALL_LIST_SUCCESS,
+      payload: data
     })
 
-    // localStorage.setItem('userInfo', JSON.stringify(data))
+    localStorage.setItem('library', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: LIBRARY_ALL_LIST_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: LIBRARY_ALL_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }

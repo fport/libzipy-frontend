@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import { dataReducer } from '../../../../infrastructure/reducers/data-reducer'
+import { libraryListReducer } from '../../../../infrastructure/views/Library/reducer'
+import { libraryDetailsReducer } from '../../../../infrastructure/views/LibraryDetails/reducer'
 
 export const library = combineReducers({
-  list: dataReducer
+  libraryListReducer,
+  libraryDetailsReducer
 })

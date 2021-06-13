@@ -19,6 +19,9 @@ is here in case you want to take a look.
 Bear in mind that it's still in development!
 
 
+## Api Docs 
+[`Api Docs`](https://documenter.getpostman.com/view/15846730/TzeTKVGC)
+
 
 ## Development & Deploying Guide
 

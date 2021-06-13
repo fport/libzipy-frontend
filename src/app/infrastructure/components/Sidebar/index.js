@@ -33,13 +33,13 @@ const Sidebar = ({ history }) => {
 
         <div className="nav-item-wrapper">
           <div className="nav-item">
-            <Link to="/dashboard/category">
+            <Link to="/dashboard/library">
               <i className="fas fa-object-ungroup kolor"></i>
-              <span className="link-text">Kategoriler</span>
+              <span className="link-text">Kütüphaneler</span>
             </Link>
           </div>
 
-          {selectedData.user_isadmin ? (
+          {selectedData.user_isadmin == 1 ? (
             <div className="nav-item">
               <Link to="/dashboard/member">
                 <i className="fas fa-walking kolor"></i>
@@ -61,7 +61,7 @@ const Sidebar = ({ history }) => {
               <span className="link-text">Yazarlar</span>
             </Link>
           </div>
-          {!selectedData.user_isadmin ? (
+          {selectedData.user_isadmin == 0 ? (
             <div className="nav-item">
               <Link to="/dashboard/member-borrow">
                 <i className="fas fa-bacon kolor"></i>

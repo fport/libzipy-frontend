@@ -28,7 +28,7 @@ const MemberDetails = ({ history }) => {
 
   const member = useSelector((state) => state.ui.member.memberDetailsReducer)
   const { memberDetails, loading } = member
-  console.log('memberDetails', memberDetails)
+
   const openModel = () => {
     setOpen(true)
   }
