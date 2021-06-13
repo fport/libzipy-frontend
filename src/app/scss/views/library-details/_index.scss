@@ -1,0 +1,55 @@
+.library-details-container {
+    padding: 10px;
+    &-content {
+        display: flex;
+        flex-direction: column;
+
+        .info {
+            &-library-name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1rem;
+                padding: 10px;
+                border-radius: 10px;
+                border: 3px dashed $primary-color;
+                color: $primary-color;
+                background-color: rgba($primary-color, 0.3);
+            }
+
+            &-library-details {
+                display: flex;
+                width: 100%;
+                margin-bottom: 1rem;
+
+                .adress {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    width: 100%;
+                    padding-left: 20px;
+
+                    h5 {
+                        margin: 0px 15px 0 0;
+                    }
+                }
+            }
+
+            .image-container {
+                position: relative;
+                text-align: center;
+                color: white;
+                width: 200px;
+
+                .centered {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+}
