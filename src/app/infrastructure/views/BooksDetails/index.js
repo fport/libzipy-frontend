@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   getBooksDetailsActions,
   getBooksAuthorActions,
-  getBooksTypeActions
+  getBooksTypeActions,
+  borrowBookActions
 } from './actions/creators'
 import { Table } from 'react-bootstrap'
 import InfoLabel from './library-label'
@@ -14,11 +15,13 @@ const BooksDetails = ({ history }) => {
   const dispatch = useDispatch()
   const { id } = useParams()
 
+  const user = useSelector((state) => state.domain.info.userInfo)
+  const { user_id, user_isadmin } = user
   const booksList = useSelector((state) => state.ui.books.booksDetailsReducer)
   const { booksDetails, booksAuthor, booksType } = booksList
 
-  const onClickHandle = (id) => {
-    console.log('asda')
+  const onClickHandle = () => {
+    dispatch(borrowBookActions(user_id, booksDetails.ISBN_id))
   }
 
   useEffect(() => {
@@ -50,14 +53,16 @@ const BooksDetails = ({ history }) => {
               />
             </div>
           </div>
-          <div className="books-details-footer">
-            <span className="books-details-text">Ödünç almak ister misiniz ?</span>
-            <div className="options">
-              <button className="btn-sm details-btn" onClick={onClickHandle}>
-                Ödünç Al
-              </button>
+          {user_isadmin && user_isadmin != 1 && (
+            <div className="books-details-footer">
+              <span className="books-details-text">Ödünç almak ister misiniz ?</span>
+              <div className="options">
+                <button className="btn-sm details-btn" onClick={onClickHandle}>
+                  Ödünç Al
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )) ||
         'yukleniyor'}
@@ -66,9 +71,3 @@ const BooksDetails = ({ history }) => {
 }
 
 export default BooksDetails
-
-//https://vtys-main-project.herokuapp.com/api/user_book
-//user_id
-//ISBN_id
-// time_of_taken : new Date().toJSON().slice(0,10).split('-').reverse().join('.')
-// time_of_given : new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toJSON().slice(0,10).split('-').reverse().join('.')
