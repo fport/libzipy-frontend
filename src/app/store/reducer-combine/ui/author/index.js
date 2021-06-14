@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { dataReducer } from '../../../../infrastructure/reducers/data-reducer'
+import { authorReducer } from '../../../../infrastructure/views/Author/reducer'
 
 export const author = combineReducers({
-  list: dataReducer
+  authorReducer
 })
