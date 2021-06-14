@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { Modal } from '../../components'
 import InfoLabel from './info-label'
 import { Table } from 'react-bootstrap'
+import { getMemberBorrowListActions } from '../MemeberBorrow/actions/creators'
 
 const MemberDetails = ({ history }) => {
   const { id } = useParams()
@@ -25,6 +26,8 @@ const MemberDetails = ({ history }) => {
     del: false,
     update: false
   })
+
+  const books = useSelector((state) => state.domain.myBooks.userBooks)
 
   const member = useSelector((state) => state.ui.member.memberDetailsReducer)
   const { memberDetails, loading } = member
@@ -64,7 +67,12 @@ const MemberDetails = ({ history }) => {
       setPassword(memberDetails.user_password)
       setIsAdmin(memberDetails.user_isadmin)
     }
-  }, [dispatch, memberDetails, loading])
+  }, [dispatch, loading, id])
+
+  useEffect(() => {
+    dispatch(getMemberDetailsActions({ id }))
+    dispatch(getMemberBorrowListActions(id))
+  }, [dispatch, id])
 
   return (
     <>
@@ -87,39 +95,18 @@ const MemberDetails = ({ history }) => {
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>
-                      <i className="fas fa-angle-double-down" />
-                    </th>
+                    <th>ISBN ID</th>
                     <th>Kitap Adı</th>
-                    <th>Kitabın Yazarı</th>
-                    <th>Username</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <i className="fas fa-mouse" />
-                    </td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i className="fas fa-mouse" />
-                    </td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <i className="fas fa-mouse" />
-                    </td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
+                  {books &&
+                    books.map((book, id) => (
+                      <tr key={id}>
+                        <td>{book.ISBN_id}</td>
+                        <td>{book.book_name}</td>
+                      </tr>
+                    ))}
                 </tbody>
               </Table>
             </div>
