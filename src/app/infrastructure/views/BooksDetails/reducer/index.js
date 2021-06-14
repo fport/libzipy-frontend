@@ -38,7 +38,7 @@ export const booksDetailsReducer = (state = initial, action) => {
     case BOOK_BORROW_REQUEST:
       return { ...state, loading: true }
     case BOOK_BORROW_SUCCESS:
-      return { ...state, loading: false, booksType: action.payload }
+      return { ...state, loading: false, booksBorrowStatus: action.payload }
     case BOOK_BORROW_FAIL:
       return { ...state, loading: false }
     default:
