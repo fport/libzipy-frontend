@@ -16,7 +16,6 @@ const MemberBorrow = () => {
   }, [dispatch])
 
   const onClickHandle = (isbn) => {
-    console.log('user_id', user_id, 'id', isbn)
     dispatch(deliveredBookActions(user_id, isbn))
     dispatch(getMemberBorrowListActions(user_id))
   }
