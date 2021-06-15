@@ -9,7 +9,10 @@ import {
   LIBRARY_UPDATE_FAIL,
   LIBRARY_DELETE_REQUEST,
   LIBRARY_DELETE_SUCCESS,
-  LIBRARY_DELETE_FAIL
+  LIBRARY_DELETE_FAIL,
+  LIBRARY_ADD_REQUEST,
+  LIBRARY_ADD_SUCCESS,
+  LIBRARY_ADD_FAIL
 } from '../types'
 
 // @desc library list actions
@@ -71,30 +74,56 @@ export const libraryUpdateActions = (_id) => async (dispatch) => {
 }
 
 // @desc library delete actions
-export const userDeleteActions = (_id) => async (dispatch) => {
+export const libraryDeleteActions = (id) => async (dispatch) => {
   try {
     dispatch({
       type: LIBRARY_DELETE_REQUEST
     })
 
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-
-    // const { data } = await axios.post('/api/users/login', { email, password }, config)
+    const { data } = await axios
+      .delete(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library/${id}`)
+      .catch(function (error) {
+        console.log(error)
+      })
 
     dispatch({
-      type: LIBRARY_DELETE_SUCCESS
+      type: LIBRARY_DELETE_SUCCESS,
+      payload: data
     })
-
-    // localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: LIBRARY_DELETE_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: LIBRARY_DELETE_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
+    })
+  }
+}
+
+// @desc library add actions
+export const libraryAddActions = (name, adress) => async (dispatch) => {
+  try {
+    dispatch({
+      type: LIBRARY_ADD_REQUEST
+    })
+
+    const { data } = await axios
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library`, {
+        library_name: name,
+        library_adress: adress
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+
+    dispatch({
+      type: LIBRARY_ADD_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: LIBRARY_ADD_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }

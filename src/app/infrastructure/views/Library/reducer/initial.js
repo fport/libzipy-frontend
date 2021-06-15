@@ -3,5 +3,6 @@ const libraryFromStorage = localStorage.getItem('library')
   : []
 
 export default {
-  libraryList: libraryFromStorage
+  libraryList: libraryFromStorage,
+  message: null
 }

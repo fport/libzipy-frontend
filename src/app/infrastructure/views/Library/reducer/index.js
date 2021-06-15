@@ -15,39 +15,23 @@ import initial from './initial'
 export const libraryListReducer = (state = initial, action) => {
   switch (action.type) {
     case LIBRARY_ALL_LIST_REQUEST:
-      return { loading: true }
+      return { ...state, loading: true }
     case LIBRARY_ALL_LIST_SUCCESS:
-      return { loading: false, libraryList: action.payload }
+      return { ...state, loading: false, libraryList: action.payload }
     case LIBRARY_ALL_LIST_FAIL:
-      return { loading: false }
-    default:
-      return state
-  }
-}
-
-// @desc library update reducer
-export const libraryUpdateReducer = (state = initial, action) => {
-  switch (action.type) {
+      return { ...state, loading: false }
     case LIBRARY_UPDATE_REQUEST:
-      return { loading: true }
+      return { ...state, loading: true }
     case LIBRARY_UPDATE_SUCCESS:
-      return { loading: false, libraryList: action.payload }
+      return { ...state, loading: false, message: action.payload }
     case LIBRARY_UPDATE_FAIL:
-      return { loading: false }
-    default:
-      return state
-  }
-}
-
-// @desc library delete reducer
-export const libraryDeleteReducer = (state = initial, action) => {
-  switch (action.type) {
+      return { ...state, loading: false }
     case LIBRARY_DELETE_REQUEST:
-      return { loading: true }
+      return { ...state, loading: true }
     case LIBRARY_DELETE_SUCCESS:
-      return { loading: false, libraryList: action.payload }
+      return { ...state, loading: false, libramessageryList: action.payload }
     case LIBRARY_DELETE_FAIL:
-      return { loading: false }
+      return { ...state, loading: false }
     default:
       return state
   }

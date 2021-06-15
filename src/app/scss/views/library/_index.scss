@@ -6,6 +6,25 @@
         grid-row-gap: 30px;
         grid-template-columns: auto auto auto;
         padding: 10px;
+        position: relative;
+
+        .add-library {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 40px;
+            position: fixed;
+            background-color: $primary-color;
+            right: -10px;
+            z-index: 999;
+            border-radius: 8px;
+            cursor: pointer;
+
+            i {
+                color: $white-color;
+            }
+        }
 
         &-options {
             display: flex;
