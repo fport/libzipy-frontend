@@ -7,6 +7,22 @@
         grid-template-columns: auto auto auto;
         padding: 10px;
 
+        &-options {
+            display: flex;
+            margin-top: 5px;
+
+            .option {
+                background-color: transparent;
+                border: none;
+                margin-left: 8px;
+                cursor: pointer;
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
         &-item {
             background-color: rgba(255, 255, 255, 0.8);
             font-size: 30px;
