@@ -1,3 +1,4 @@
 export default {
-  authors: null
+  authors: null,
+  message: null
 }
