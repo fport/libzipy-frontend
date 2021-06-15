@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAuthorListActions, addAuthorActions } from './actions/creators'
+import { getAuthorListActions, addAuthorActions, authorDeleteActions } from './actions/creators'
 import { Modal } from '../../components'
 
 const Author = () => {
@@ -30,6 +30,11 @@ const Author = () => {
 
   const addBooktoLibrary = () => {
     setState({ ...s, add: !s.add })
+  }
+
+  const onClickDeleteHandle = (id) => {
+    dispatch(authorDeleteActions(id))
+    dispatch(getAuthorListActions())
   }
 
   useEffect(() => {
@@ -79,6 +84,16 @@ const Author = () => {
                 <td>{author.author_surname}</td>
                 <td>{author.author_nationality}</td>
                 <td>{author.author_date_of_birth}</td>
+                {selectedData.user_isadmin == 1 ? (
+                  <td>
+                    <button
+                      className="option center"
+                      onClick={() => onClickDeleteHandle(author.author_id)}
+                    >
+                      <i className="fas fa-trash-alt" />
+                    </button>
+                  </td>
+                ) : null}
               </tr>
             ))}
         </tbody>
