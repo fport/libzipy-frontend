@@ -39,8 +39,8 @@ const LibraryDetails = ({ history }) => {
   const addSubmitHandler = (e) => {
     e.preventDefault()
     dispatch(addBookToLibraryActions(id, select))
-    setState({ ...s, add: !s.add })
     dispatch(getLibraryDetailsActions({ id }))
+    setState({ ...s, add: !s.add })
   }
 
   useEffect(() => {
