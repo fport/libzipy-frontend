@@ -3,33 +3,78 @@ import React, { useEffect, useState } from 'react'
 import { libraryA } from '../../../assets'
 import LibraryInfo from './library-label'
 import { useDispatch, useSelector } from 'react-redux'
-import { getLibraryDetailsActions } from './actions/creators'
+import { getLibraryDetailsActions, addBookToLibraryActions } from './actions/creators'
+import { getBooksListActions } from '../Books/actions/creators'
 import { Table } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
+import { Modal } from '../../components'
 
 const LibraryDetails = ({ history }) => {
+  const [s, setState] = useState({
+    del: false,
+    update: false,
+    add: false
+  })
+  const [select, setSelect] = useState('')
+
   const { id } = useParams()
   const dispatch = useDispatch()
 
-  // for dynamic library info
   const library = useSelector((state) => state.ui.library.libraryListReducer)
   const { libraryList } = library
   const lib = libraryList.find((e) => e.library_id == id)
-
   const librarys = useSelector((state) => state.ui.library.libraryDetailsReducer)
   const { libraryDetails, loading } = librarys
+  const selectedData = useSelector((data) => data.domain.info.userInfo)
+  const booksList = useSelector((state) => state.ui.books.booksReducer)
+  const { books } = booksList
 
   const onClickHandle = (id) => {
     history.push(`/dashboard/books/${id}`)
   }
+  const addBooktoLibrary = () => {
+    setState({ ...s, add: !s.add })
+  }
+
+  const addSubmitHandler = (e) => {
+    e.preventDefault()
+    dispatch(addBookToLibraryActions(id, select))
+    dispatch(getLibraryDetailsActions({ id }))
+    setState({ ...s, add: !s.add })
+  }
 
   useEffect(() => {
     dispatch(getLibraryDetailsActions({ id }))
+    dispatch(getBooksListActions())
   }, [dispatch])
 
   return (
     <div className="library-details-container">
       <div className="library-details-container-content">
+        {selectedData.user_isadmin == 1 ? (
+          <div className="add-library" onClick={() => addBooktoLibrary()}>
+            <i className="fas fa-plus" />
+          </div>
+        ) : null}
+        {s.add ? (
+          <Modal title="Kütüphaneye Kitap Ekle" closeModal={() => addBooktoLibrary()}>
+            <form onSubmit={addSubmitHandler}>
+              <span for="cars">Kitap Sec</span>
+              <select
+                value={select}
+                onChange={(e) => {
+                  setSelect(e.target.value)
+                }}
+                name="cars"
+                id="cars"
+              >
+                {books &&
+                  books.map((book) => <option value={book.ISBN_id}>{book.book_name}</option>)}
+              </select>
+              <button type="submit">Ekle</button>
+            </form>
+          </Modal>
+        ) : null}
         <div className="info">
           <div className="info-library-name">
             <h2>{lib.library_name}</h2>

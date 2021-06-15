@@ -32,24 +32,35 @@ const BooksDetails = ({ history }) => {
 
   return (
     <>
-      {(booksDetails && booksAuthor && booksType && (
+      {(booksDetails && (
         <div className="books-details-container">
           <div className="books-details-container-content">
             <div className="info">
-              <InfoLabel title={'Kitabin Adi'} value={`${booksDetails.book_name}`} />
-              <InfoLabel title={'Sayfa Numarasi'} value={`${booksDetails.book_number_of_pages}`} />
-              <InfoLabel title={'Kitabin Türü'} value={`${booksType.type_name}`} />
+              <InfoLabel
+                title={'Kitabin Adi'}
+                value={`${(booksDetails && booksDetails.book_name) || '-'}`}
+              />
+              <InfoLabel
+                title={'Sayfa Numarasi'}
+                value={`${(booksDetails && booksDetails.book_number_of_pages) || '-'}`}
+              />
+              <InfoLabel
+                title={'Kitabin Türü'}
+                value={`${(booksType && booksType.type_name) || '-'}`}
+              />
               <InfoLabel
                 title={'Kitabin Yazari'}
-                value={`${booksAuthor.author_name} ${booksAuthor.author_surname}`}
+                value={`${(booksAuthor && booksAuthor.author_name) || '-'} ${
+                  (booksAuthor && booksAuthor.author_surname) || '-'
+                }`}
               />
               <InfoLabel
                 title={'Kitabin Yayinlanma Tarihi'}
-                value={`${booksDetails.book_date_of_issue}`}
+                value={`${(booksDetails && booksDetails.book_date_of_issue) || '-'}`}
               />
               <InfoLabel
                 title={'Kitabin Yayinlanma Yeri'}
-                value={`${booksDetails.book_place_of_publication}`}
+                value={`${(booksDetails && booksDetails.book_place_of_publication) || '-'}`}
               />
             </div>
           </div>
