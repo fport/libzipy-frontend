@@ -40,6 +40,8 @@ const Library = ({ history }) => {
     dispatch(libraryDeleteActions(id))
     dispatch(libraryListActions())
   }
+
+  //todo
   const onClickUpdateHandle = (id) => {
     // dispatch(libraryDeleteActions(id))
   }

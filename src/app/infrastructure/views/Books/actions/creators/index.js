@@ -5,7 +5,10 @@ import {
   BOOK_LIST_FAIL,
   ADD_BOOK_TO_LIBRARY_REQUEST,
   ADD_BOOK_TO_LIBRARY_SUCCESS,
-  ADD_BOOK_TO_LIBRARY_FAIL
+  ADD_BOOK_TO_LIBRARY_FAIL,
+  BOOK_DELETE_REQUEST,
+  BOOK_DELETE_SUCCESS,
+  BOOK_DELETE_FAIL
 } from '../types'
 
 // @desc user list actions
@@ -59,6 +62,32 @@ export const addBookToLibraryActions = (name, pages, issue, publicaction) => asy
   } catch (error) {
     dispatch({
       type: ADD_BOOK_TO_LIBRARY_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
+    })
+  }
+}
+
+// @desc library delete actions
+export const bookDeleteActions = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: BOOK_DELETE_REQUEST
+    })
+
+    const { data } = await axios
+      .delete(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/book/${id}`)
+      .catch(function (error) {
+        console.log(error)
+      })
+
+    dispatch({
+      type: BOOK_DELETE_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: BOOK_DELETE_FAIL,
       payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     })
