@@ -35,18 +35,16 @@ export const getLibraryDetailsActions = ({ id }) => async (dispatch) => {
 }
 
 // @desc add book to library actions
-export const addBookToLibraryActions = (name, pages, issue, publicaction) => async (dispatch) => {
+export const addBookToLibraryActions = (id, isbn) => async (dispatch) => {
   try {
     dispatch({
       type: ADD_BOOK_TO_LIBRARY_REQUEST
     })
 
     const { data } = await axios
-      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/book`, {
-        book_name: name,
-        book_number_of_pages: pages,
-        book_place_of_publication: publicaction,
-        book_date_of_issue: issue
+      .post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library_book`, {
+        library_id: id,
+        ISBN_id: isbn
       })
       .catch(function (error) {
         console.log(error)

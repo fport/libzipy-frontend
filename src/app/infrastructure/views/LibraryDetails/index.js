@@ -4,6 +4,7 @@ import { libraryA } from '../../../assets'
 import LibraryInfo from './library-label'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLibraryDetailsActions, addBookToLibraryActions } from './actions/creators'
+import { getBooksListActions } from '../Books/actions/creators'
 import { Table } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { Modal } from '../../components'
@@ -14,12 +15,7 @@ const LibraryDetails = ({ history }) => {
     update: false,
     add: false
   })
-  const [name, setName] = useState('')
-  const [pages, setPages] = useState('')
-  const [issue, setIssue] = useState('')
-  const [publicaction, setPublicaction] = useState('')
-  // const [authorId, setAuthorId] = useState('')
-  // const [typeId, setTypeId] = useState('')
+  const [select, setSelect] = useState('')
 
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -30,6 +26,8 @@ const LibraryDetails = ({ history }) => {
   const librarys = useSelector((state) => state.ui.library.libraryDetailsReducer)
   const { libraryDetails, loading } = librarys
   const selectedData = useSelector((data) => data.domain.info.userInfo)
+  const booksList = useSelector((state) => state.ui.books.booksReducer)
+  const { books } = booksList
 
   const onClickHandle = (id) => {
     history.push(`/dashboard/books/${id}`)
@@ -40,13 +38,14 @@ const LibraryDetails = ({ history }) => {
 
   const addSubmitHandler = (e) => {
     e.preventDefault()
-    dispatch(addBookToLibraryActions(name, pages, issue, publicaction))
-    dispatch(getLibraryDetailsActions({ id }))
+    dispatch(addBookToLibraryActions(id, select))
     setState({ ...s, add: !s.add })
+    dispatch(getLibraryDetailsActions({ id }))
   }
 
   useEffect(() => {
     dispatch(getLibraryDetailsActions({ id }))
+    dispatch(getBooksListActions())
   }, [dispatch])
 
   return (
@@ -60,14 +59,18 @@ const LibraryDetails = ({ history }) => {
         {s.add ? (
           <Modal title="Kütüphaneye Kitap Ekle" closeModal={() => addBooktoLibrary()}>
             <form onSubmit={addSubmitHandler}>
-              <h4>Kitabin Adi</h4>
-              <input value={name} onChange={(e) => setName(e.target.value)} />
-              <h4>Sayfa Numarasi</h4>
-              <input value={pages} onChange={(e) => setPages(e.target.value)} />
-              <h4>Kitabin Yayinlanma Tarihi</h4>
-              <input value={issue} onChange={(e) => setIssue(e.target.value)} />
-              <h4>Nerede Paylasildi</h4>
-              <input value={publicaction} onChange={(e) => setPublicaction(e.target.value)} />
+              <span for="cars">Kitap Sec</span>
+              <select
+                value={select}
+                onChange={(e) => {
+                  setSelect(e.target.value)
+                }}
+                name="cars"
+                id="cars"
+              >
+                {books &&
+                  books.map((book) => <option value={book.ISBN_id}>{book.book_name}</option>)}
+              </select>
               <button type="submit">Ekle</button>
             </form>
           </Modal>
