@@ -29,7 +29,7 @@ export const libraryListReducer = (state = initial, action) => {
     case LIBRARY_DELETE_REQUEST:
       return { ...state, loading: true }
     case LIBRARY_DELETE_SUCCESS:
-      return { ...state, loading: false, libramessageryList: action.payload }
+      return { ...state, loading: false, message: action.payload }
     case LIBRARY_DELETE_FAIL:
       return { ...state, loading: false }
     default:

@@ -3,7 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { libraryA } from '../../../assets'
 import LibraryInfo from './library-label'
 import { useDispatch, useSelector } from 'react-redux'
-import { libraryListActions, libraryDeleteActions, libraryAddActions } from './actions/creators'
+import { useParams } from 'react-router-dom'
+import {
+  libraryListActions,
+  libraryDeleteActions,
+  libraryAddActions,
+  libraryUpdateActions
+} from './actions/creators'
 import { Modal } from '../../components'
 
 const Library = ({ history }) => {
@@ -14,13 +20,19 @@ const Library = ({ history }) => {
   })
   const [libraryName, setLibraryName] = useState('')
   const [libraryAdress, setLibraryAdress] = useState('')
+  const [name, setName] = useState('')
+  const [adress, setAdress] = useState('')
+  const [id, setId] = useState('')
 
   const deleteMemeber = () => {
     setState({ ...s, del: !s.del })
   }
 
-  const updateMemeber = () => {
+  const updateMemeber = (id, name, adress) => {
     setState({ ...s, update: !s.update })
+    setName(name)
+    setAdress(adress)
+    setId(id)
   }
 
   const addMemeber = () => {
@@ -41,9 +53,10 @@ const Library = ({ history }) => {
     dispatch(libraryListActions())
   }
 
-  //todo
-  const onClickUpdateHandle = (id) => {
-    // dispatch(libraryDeleteActions(id))
+  const onClickUpdateHandle = () => {
+    dispatch(libraryUpdateActions(id, name, adress))
+    setState({ ...s, update: !s.update })
+    dispatch(libraryListActions())
   }
 
   const addSubmitHandler = (e) => {
@@ -76,6 +89,17 @@ const Library = ({ history }) => {
             </form>
           </Modal>
         ) : null}
+        {s.update ? (
+          <Modal closeModal={() => updateMemeber()}>
+            <form onSubmit={onClickUpdateHandle}>
+              <h4>Kütüphane Adı</h4>
+              <input value={name} onChange={(e) => setName(e.target.value)} />
+              <h4>Kütüphane Adresi</h4>
+              <input value={adress} onChange={(e) => setAdress(e.target.value)} />
+              <button type="submit">Guncelle</button>
+            </form>
+          </Modal>
+        ) : null}
         {libraryList
           ? libraryList.map((library, id) => (
               <div key={id} className="library-container-content-item">
@@ -99,7 +123,13 @@ const Library = ({ history }) => {
                       </button>
                       <button
                         className="option center"
-                        onClick={() => onClickUpdateHandle(library.library_id)}
+                        onClick={() =>
+                          updateMemeber(
+                            library.library_id,
+                            library.library_name,
+                            library.library_adress
+                          )
+                        }
                       >
                         <i className="fas fa-edit" />
                       </button>
