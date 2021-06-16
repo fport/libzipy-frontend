@@ -72,7 +72,12 @@ const Books = ({ history }) => {
             <h4>Kitabin Adi</h4>
             <input value={name} onChange={(e) => setName(e.target.value)} required />
             <h4>Sayfa Numarasi</h4>
-            <input value={pages} onChange={(e) => setPages(e.target.value)} required />
+            <input
+              type="number"
+              value={pages}
+              onChange={(e) => setPages(e.target.value)}
+              required
+            />
             <h4>Kitabin Yayım Tarihini seciniz</h4>
             <input type="date" value={issue} onChange={(e) => setIssue(e.target.value)} required />
             <h4>Kitabin Yayinlanma Yeri</h4>
@@ -81,7 +86,7 @@ const Books = ({ history }) => {
               onChange={(e) => setPublicaction(e.target.value)}
               required
             />
-            <h4 for="type">Kitap türü seçiniz</h4>
+            <h4>Kitap türü seçiniz</h4>
             <select
               value={type}
               onChange={(e) => {
@@ -92,9 +97,14 @@ const Books = ({ history }) => {
               required
             >
               <option>-</option>
-              {types && types.map((type) => <option value={type.type_id}>{type.type_name}</option>)}
+              {types &&
+                types.map((type, id) => (
+                  <option key={id} value={type.type_id}>
+                    {type.type_name}
+                  </option>
+                ))}
             </select>
-            <h4 for="type">Kitap yazari seçiniz</h4>
+            <h4>Kitap yazari seçiniz</h4>
             <select
               value={author}
               onChange={(e) => {
@@ -106,8 +116,8 @@ const Books = ({ history }) => {
             >
               <option>-</option>
               {authors &&
-                authors.map((au) => (
-                  <option value={au.author_id}>
+                authors.map((au, id) => (
+                  <option key={id} value={au.author_id}>
                     {au.author_name} {au.author_surname}
                   </option>
                 ))}
