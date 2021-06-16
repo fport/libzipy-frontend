@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getBooksListActions, addBookToLibraryActions } from './actions/creators'
+import { getBooksListActions, addBookToLibraryActions, bookDeleteActions } from './actions/creators'
 import { Table } from 'react-bootstrap'
 import { Modal } from '../../components'
 
@@ -26,6 +26,11 @@ const Books = ({ history }) => {
     dispatch(addBookToLibraryActions(name, pages, issue, publicaction))
     dispatch(getBooksListActions())
     setState({ ...s, add: !s.add })
+  }
+
+  const onClickDeleteHandle = (isbn) => {
+    dispatch(bookDeleteActions(isbn))
+    dispatch(getBooksListActions())
   }
 
   const onClickHandle = (id) => {
@@ -88,6 +93,16 @@ const Books = ({ history }) => {
                     Detaya Git
                   </button>
                 </td>
+                {selectedData.user_isadmin == 1 ? (
+                  <td>
+                    <button
+                      className="option center"
+                      onClick={() => onClickDeleteHandle(book.ISBN_id)}
+                    >
+                      <i className="fas fa-trash-alt" />
+                    </button>
+                  </td>
+                ) : null}
               </tr>
             ))) || <span>loading</span>}
         </tbody>
