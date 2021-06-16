@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { libraryA } from '../../../assets'
 import LibraryInfo from './library-label'
 import { useDispatch, useSelector } from 'react-redux'
-import { getLibraryDetailsActions, addBookToLibraryActions } from './actions/creators'
+import {
+  getLibraryDetailsActions,
+  addBookToLibraryActions,
+  detailsBookDeleteActions
+} from './actions/creators'
 import { getBooksListActions } from '../Books/actions/creators'
 import { Table } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
@@ -32,6 +36,12 @@ const LibraryDetails = ({ history }) => {
   const onClickHandle = (id) => {
     history.push(`/dashboard/books/${id}`)
   }
+
+  const onClickDeleteHandle = (isbn) => {
+    dispatch(detailsBookDeleteActions(id, isbn))
+    dispatch(getBooksListActions())
+  }
+
   const addBooktoLibrary = () => {
     setState({ ...s, add: !s.add })
   }
@@ -116,6 +126,16 @@ const LibraryDetails = ({ history }) => {
                         Detaya Git
                       </button>
                     </td>
+                    {selectedData.user_isadmin == 1 ? (
+                      <td>
+                        <button
+                          className="option center"
+                          onClick={() => onClickDeleteHandle(lib.ISBN_id)}
+                        >
+                          <i className="fas fa-trash-alt" />
+                        </button>
+                      </td>
+                    ) : null}
                   </tr>
                 ))) || <span>loading</span>}
             </tbody>

@@ -1,4 +1,14 @@
 .books-container {
+    .option {
+        background-color: transparent;
+        border: none;
+        margin-left: 8px;
+        cursor: pointer;
+
+        i {
+            font-size: 20px;
+        }
+    }
     .add-library {
         display: flex;
         align-items: center;

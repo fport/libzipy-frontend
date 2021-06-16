@@ -6,9 +6,9 @@ import {
   ADD_BOOK_TO_LIBRARY_REQUEST,
   ADD_BOOK_TO_LIBRARY_SUCCESS,
   ADD_BOOK_TO_LIBRARY_FAIL,
-  LIBRARY_DELETE_REQUEST,
-  LIBRARY_DELETE_SUCCESS,
-  LIBRARY_DELETE_FAIL
+  LIBRARY_DETAILS_BOOK_DELETE_REQUEST,
+  LIBRARY_DETAILS_BOOK_DELETE_SUCCESS,
+  LIBRARY_DETAILS_BOOK_DELETE_FAIL
 } from '../types'
 
 // @desc user list actions
@@ -66,26 +66,31 @@ export const addBookToLibraryActions = (id, isbn) => async (dispatch) => {
   }
 }
 
-// @desc library delete actions
-export const libraryDeleteActions = (id) => async (dispatch) => {
+// @desc delete details book actions
+export const detailsBookDeleteActions = (id, isbn) => async (dispatch) => {
   try {
     dispatch({
-      type: LIBRARY_DELETE_REQUEST
+      type: LIBRARY_DETAILS_BOOK_DELETE_REQUEST
     })
-
+    console.log('id', id, 'isbn', isbn)
     const { data } = await axios
-      .delete(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library/${id}`)
+      .delete(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library_book`, {
+        data: {
+          ISBN_id: isbn,
+          library_id: id
+        }
+      })
       .catch(function (error) {
         console.log(error)
       })
 
     dispatch({
-      type: LIBRARY_DELETE_SUCCESS,
+      type: LIBRARY_DETAILS_BOOK_DELETE_SUCCESS,
       payload: data
     })
   } catch (error) {
     dispatch({
-      type: LIBRARY_DELETE_FAIL,
+      type: LIBRARY_DETAILS_BOOK_DELETE_FAIL,
       payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     })
