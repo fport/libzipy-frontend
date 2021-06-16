@@ -95,16 +95,20 @@ const MemberDetails = ({ history }) => {
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>ISBN ID</th>
                     <th>Kitap Adı</th>
+                    <th>Kitap Sayfası</th>
+                    <th>Kitap Yayın Yılı</th>
+                    <th>Kitap Türü</th>
                   </tr>
                 </thead>
                 <tbody>
                   {books &&
                     books.map((book, id) => (
                       <tr key={id}>
-                        <td>{book.ISBN_id}</td>
                         <td>{book.book_name}</td>
+                        <td>{book.book_number_of_pages}</td>
+                        <td>{book.book_date_of_issue}</td>
+                        <td>{book.book_place_of_publication}</td>
                       </tr>
                     ))}
                 </tbody>

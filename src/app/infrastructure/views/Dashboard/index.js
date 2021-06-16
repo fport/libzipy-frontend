@@ -11,7 +11,8 @@ import {
   MemeberBorrow,
   MemberDetails,
   LibraryDetails,
-  BooksDetails
+  BooksDetails,
+  Me
 } from '../index'
 import { useSelector } from 'react-redux'
 /* eslint-disable */
@@ -39,6 +40,9 @@ const Dashboard = ({ history }) => {
         <Switch>
           <Route path="/dashboard/member-borrow">
             <MemeberBorrow history={history} />
+          </Route>
+          <Route path="/dashboard/me">
+            <Me history={history} />
           </Route>
           <Route path="/dashboard/category">
             <Category history={history} />

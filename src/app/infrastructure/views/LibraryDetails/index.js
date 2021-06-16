@@ -105,8 +105,8 @@ const LibraryDetails = ({ history }) => {
               <tr>
                 <th>Kitap Adı</th>
                 <th>Kitabın Sayfasi</th>
-                <th>Yayinlandigi Tarih</th>
-                <th>Nererede Paylasildi</th>
+                <th>Yayım Tarihi</th>
+                <th>Yayım Yeri</th>
                 <th>
                   <span>Detay </span>
                   <i className="fas fa-angle-double-down" />
