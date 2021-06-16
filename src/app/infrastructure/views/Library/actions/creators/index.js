@@ -44,31 +44,27 @@ export const libraryListActions = () => async (dispatch) => {
 }
 
 // @desc library update actions
-export const libraryUpdateActions = (_id) => async (dispatch) => {
+export const libraryUpdateActions = (id, name, adress) => async (dispatch) => {
   try {
     dispatch({
       type: LIBRARY_UPDATE_REQUEST
     })
-
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // }
-
-    // const { data } = await axios.post('/api/users/login', { email, password }, config)
-
+    await axios
+      .put(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/library/${id}`, {
+        library_name: name,
+        library_adress: adress
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
     dispatch({
       type: LIBRARY_UPDATE_SUCCESS
     })
-    // payload: data
-
-    // localStorage.setItem('userInfo', JSON.stringify(data))
   } catch (error) {
     dispatch({
-      type: LIBRARY_UPDATE_FAIL
-      // payload:
-      //   error.response && error.response.data.message ? error.response.data.message : error.message
+      type: LIBRARY_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
     })
   }
 }
