@@ -62,12 +62,20 @@ const Sidebar = ({ history }) => {
             </Link>
           </div>
           {selectedData.user_isadmin == 0 ? (
-            <div className="nav-item">
-              <Link to="/dashboard/member-borrow">
-                <i className="fas fa-bacon kolor"></i>
-                <span className="link-text">Ödünç Aldığım Kitaplar</span>
-              </Link>
-            </div>
+            <>
+              <div className="nav-item">
+                <Link to="/dashboard/member-borrow">
+                  <i className="fas fa-bacon kolor"></i>
+                  <span className="link-text">Ödünç Aldığım Kitaplar</span>
+                </Link>
+              </div>
+              <div className="nav-item">
+                <Link to="/dashboard/me">
+                  <i className="fas fa-bacon kolor"></i>
+                  <span className="link-text">Bilgilerim</span>
+                </Link>
+              </div>
+            </>
           ) : null}
         </div>
         <div className="nav-close">
