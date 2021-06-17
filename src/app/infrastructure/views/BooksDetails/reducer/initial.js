@@ -3,5 +3,6 @@ export default {
   booksAuthor: null,
   booksType: null,
   booksBorrowStatus: null,
-  loading: false
+  loading: false,
+  message: null
 }
