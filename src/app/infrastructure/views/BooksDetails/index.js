@@ -75,6 +75,7 @@ const BooksDetails = ({ history }) => {
       setAuthor(an.author_id)
     }
   }, [s, booksDetails, booksType])
+
   return (
     <>
       {(booksDetails && (
@@ -186,7 +187,7 @@ const BooksDetails = ({ history }) => {
           )}
           {user_isadmin && user_isadmin == 1 && (
             <div className="books-details-footer">
-              <span className="books-details-text">Ödünç almak ister misiniz ?</span>
+              <span className="books-details-text">Güncellemek ister misiniz ?</span>
               <div className="options">
                 <button className="btn-sm details-btn" onClick={updateMemeber}>
                   Guncelle
