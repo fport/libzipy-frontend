@@ -8,7 +8,10 @@ import {
   ADD_BOOK_TO_LIBRARY_FAIL,
   BOOK_DELETE_REQUEST,
   BOOK_DELETE_SUCCESS,
-  BOOK_DELETE_FAIL
+  BOOK_DELETE_FAIL,
+  BOOK_TYPE_LIST_REQUEST,
+  BOOK_TYPE_LIST_SUCCESS,
+  BOOK_TYPE_LIST_FAIL
 } from '../types'
 
 // @desc user list actions
@@ -37,8 +40,36 @@ export const getBooksListActions = () => async (dispatch) => {
   }
 }
 
+// @desc book type list  actions
+export const getBookTypeActions = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: BOOK_TYPE_LIST_REQUEST
+    })
+
+    const { data } = await axios
+      .get(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/type`)
+      .catch(function (error) {
+        console.log(error)
+      })
+
+    dispatch({
+      type: BOOK_TYPE_LIST_SUCCESS,
+      payload: data
+    })
+  } catch (error) {
+    dispatch({
+      type: BOOK_TYPE_LIST_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
+    })
+  }
+}
+
 // @desc add book to library actions
-export const addBookToLibraryActions = (name, pages, issue, publicaction) => async (dispatch) => {
+export const addBookToLibraryActions = (name, pages, issue, publicaction, type, author) => async (
+  dispatch
+) => {
   try {
     dispatch({
       type: ADD_BOOK_TO_LIBRARY_REQUEST
@@ -49,7 +80,9 @@ export const addBookToLibraryActions = (name, pages, issue, publicaction) => asy
         book_name: name,
         book_number_of_pages: pages,
         book_date_of_issue: issue,
-        book_place_of_publication: publicaction
+        book_place_of_publication: publicaction,
+        author_id: author,
+        type_id: type
       })
       .catch(function (error) {
         console.log(error)

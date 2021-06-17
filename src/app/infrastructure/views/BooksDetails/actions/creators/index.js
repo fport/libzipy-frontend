@@ -11,7 +11,10 @@ import {
   BOOK_TYPE_DETAILS_FAIL,
   BOOK_BORROW_REQUEST,
   BOOK_BORROW_SUCCESS,
-  BOOK_BORROW_FAIL
+  BOOK_BORROW_FAIL,
+  BOOK_UPDATE_REQUEST,
+  BOOK_UPDATE_SUCCESS,
+  BOOK_UPDATE_FAIL
 } from '../types'
 
 // @desc user list actions
@@ -120,6 +123,38 @@ export const borrowBookActions = (id, isbn) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: BOOK_BORROW_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message
+    })
+  }
+}
+
+// @desc user update actions
+export const bookUpdateActions = (id, name, pages, issue, publicaction, type, author) => async (
+  dispatch
+) => {
+  try {
+    dispatch({
+      type: BOOK_UPDATE_REQUEST
+    })
+    await axios
+      .put(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/book/${id}`, {
+        book_name: name,
+        book_number_of_pages: pages,
+        book_date_of_issue: issue,
+        book_place_of_publication: publicaction,
+        author_id: author,
+        type_id: type
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    dispatch({
+      type: BOOK_UPDATE_SUCCESS
+    })
+  } catch (error) {
+    dispatch({
+      type: BOOK_UPDATE_FAIL,
       payload:
         error.response && error.response.data.message ? error.response.data.message : error.message
     })

@@ -7,7 +7,10 @@ import {
   ADD_BOOK_TO_LIBRARY_FAIL,
   BOOK_DELETE_REQUEST,
   BOOK_DELETE_SUCCESS,
-  BOOK_DELETE_FAIL
+  BOOK_DELETE_FAIL,
+  BOOK_TYPE_LIST_REQUEST,
+  BOOK_TYPE_LIST_SUCCESS,
+  BOOK_TYPE_LIST_FAIL
 } from '../actions/types'
 import initial from './initial'
 
@@ -19,6 +22,12 @@ export const booksReducer = (state = initial, action) => {
     case BOOK_LIST_SUCCESS:
       return { ...state, loading: false, books: action.payload }
     case BOOK_LIST_FAIL:
+      return { ...state, loading: false }
+    case BOOK_TYPE_LIST_REQUEST:
+      return { ...state, loading: true }
+    case BOOK_TYPE_LIST_SUCCESS:
+      return { ...state, loading: false, types: action.payload }
+    case BOOK_TYPE_LIST_FAIL:
       return { ...state, loading: false }
     case ADD_BOOK_TO_LIBRARY_REQUEST:
       return { ...state, loading: true }

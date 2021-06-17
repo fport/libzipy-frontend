@@ -77,7 +77,9 @@ const LibraryDetails = ({ history }) => {
                 }}
                 name="cars"
                 id="cars"
+                required
               >
+                <option>-</option>
                 {books &&
                   books.map((book) => <option value={book.ISBN_id}>{book.book_name}</option>)}
               </select>

@@ -12,6 +12,8 @@ import libraryD from './libraryD.svg'
 import Signin from './sign-in.svg'
 import Icodots from './ico-dots.svg'
 import Dashboard from './dashboard.png'
+import Anabir from './anabir.png'
+import Anaiki from './anaiki.png'
 
 export {
   libraryLanding,
@@ -27,5 +29,7 @@ export {
   libraryD,
   Signin,
   Icodots,
-  Dashboard
+  Dashboard,
+  Anaiki,
+  Anabir
 }
