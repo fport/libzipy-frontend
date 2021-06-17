@@ -15,28 +15,28 @@ const Navbars = () => {
           </Link>
         </div>
         <div className="navbar-content-right">
-          <button className="btn-md navbar-button">
-            <Link to="/library">
+          <Link to="/library">
+            <button className="btn-md navbar-button">
               <i className="fas fa-home" style={{ marginRight: '0.5rem' }}></i>
               Kütüphaneler
-            </Link>
-          </button>
-          <button className="btn-md navbar-button">
-            <Link to="/books">
+            </button>
+          </Link>
+          <Link to="/books">
+            <button className="btn-md navbar-button">
               <i className="fas fa-rocket" style={{ marginRight: '0.5rem' }}></i>Kitaplar
-            </Link>
-          </button>
-          <button className="btn-md navbar-button">
-            <Link to="/author">
+            </button>
+          </Link>
+          <Link to="/author">
+            <button className="btn-md navbar-button">
               <i className="fas fa-bookmark" style={{ marginRight: '0.5rem' }}></i>Yazarlar
-            </Link>
-          </button>
-          <button className="btn-md navbar-button">
-            <Link to="/login">
+            </button>
+          </Link>
+          <Link to="/login">
+            <button className="btn-md navbar-button">
               <i className="fas fa-bolt" style={{ marginRight: '0.5rem' }}></i>
               {selectedData.userInfo.user_id ? 'Dashboard' : 'Giriş Yap'}
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -342,3 +342,93 @@
         }
     }
 }
+
+.libraryx-container {
+    padding: 10px;
+    padding-left: 150px;
+
+    &-content {
+        display: grid;
+        grid-row-gap: 30px;
+        grid-template-columns: auto auto auto;
+        padding: 10px;
+        position: relative;
+
+        .add-library {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 40px;
+            position: fixed;
+            background-color: rgba($primary-color, 0.8);
+            right: -10px;
+            z-index: 999;
+            border-radius: 8px;
+            cursor: pointer;
+
+            i {
+                color: $white-color;
+            }
+        }
+
+        &-options {
+            display: flex;
+            margin-top: 5px;
+
+            .option {
+                background-color: transparent;
+                border: none;
+                margin-left: 8px;
+                cursor: pointer;
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        &-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            font-size: 30px;
+
+            .image-container {
+                position: relative;
+                text-align: center;
+                color: white;
+                width: 200px;
+
+                .centered {
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .library-label {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 5px;
+
+                &-title {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: gray;
+                    white-space: nowrap;
+                }
+
+                &-value {
+                    display: flex;
+                    padding-top: 2px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #201c1c;
+                }
+            }
+        }
+    }
+}
